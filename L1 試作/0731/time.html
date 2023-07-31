@@ -10,7 +10,8 @@
         .time {
             width: 100px;
             height: 50px;
-            border: 1px solid;
+            /* border: 1px solid; */
+            text-align: center;
         }
     </style>
 </head>
@@ -19,10 +20,20 @@
     <div class="time"></div>
 
     <script>
-        const i = new Date();
-        let time = document.querySelector('.time')
-        time.innerHTML = i;
-        console.log(i);
+        function clock() {
+            const i = new Date();
+            const y = i.getFullYear();
+            const mt = i.getMonth();
+            const d = i.getDate();
+            const h = i.getHours();
+            const m = i.getMinutes();
+            const s = i.getSeconds();
+            let time = document.querySelector('.time')
+            time.innerHTML = `${y}/${mt}/${d}<br>${h}:${m}:${s}`;
+            console.log(i);
+        }
+
+        setInterval(clock,1000);
     </script>
 </body>
 
