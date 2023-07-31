@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 2px solid;
+            position: relative;
+        }
+
+        .hour {
+            width: 180px;
+            height: 3px;
+            background-color: black;
+            position: absolute;
+            transform: rotate(45deg);
+            left: 97px;
+            top: 187px;
+        }
+
+        .min {
+            width: 200px;
+            height: 3px;
+            background-color: rgb(204, 0, 0);
+            position: absolute;
+            transform: rotate(90deg);
+            left: 150px;
+            top: 150px;
+        }
+
+        .sec {
+            width: 230px;
+            height: 3px;
+            background-color: rgb(57, 0, 150);
+            position: absolute;
+            left: 250px;
+            top: 250px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+</body>
+</html>
