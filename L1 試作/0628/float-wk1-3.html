@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float-wk1-3</title>
+    <style>
+        .box-h-f {
+            width: 600px;
+            height: 200px;
+        }
+
+        .box-h {
+            background-color: pink;
+        }
+
+        .box-f {
+            background-color: gold;
+        }
+
+        .box-b {
+            width: 600px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        .box-m {
+            width: 300px;
+            height: 300px;
+        }
+
+        .box-l {
+            width: 150px;
+            height: 300px;
+            background-color: rgb(142, 142, 142);
+            float: left;
+        }
+
+        .box-r {
+            width: 450px;
+            height: 300px;
+            background-color: rgb(216, 0, 195);
+            float: right;
+        }
+
+        .box-r-t {
+            width: 450px;
+            height: 100px;
+            background-color: rgb(106, 21, 167);
+            float: right;
+        }
+
+        .box-r-b {
+            width: 450px;
+            height: 100px;
+            background-color: rgb(144, 238, 11);
+            float: right;
+        }
+
+        .box-r-f {
+            width: 450px;
+            height: 100px;
+            background-color: rgb(218, 251, 5);
+            float: right;
+        }
+
+        .box-t-r {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(28, 19, 208);
+            float: right;
+        }
+
+        .box-t-l {
+            width: 150px;
+            height: 100px;
+            background-color: rgb(229, 8, 8);
+            float: left;
+        }
+
+        .box-b-r {
+            width: 150px;
+            height: 100px;
+            background-color: rgb(31, 25, 135);
+            float: right;
+        }
+
+        .box-b-l {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(154, 69, 69);
+            float: left;
+        }
+
+        .box-f-r {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(19, 208, 139);
+            float: right;
+        }
+
+        .box-f-l {
+            width: 150px;
+            height: 100px;
+            background-color: rgb(98, 8, 87);
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-h-f box-h"></div>
+    
+    <!-- 巢狀結構 -->
+    <div class="box-b">
+        <div class="box-l"></div>
+        <div class="box-r">
+            <div class="box-r-t">
+                <div class="box-t-r"></div>
+                <div class="box-t-l"></div>
+            </div>
+            <div class="box-r-b">
+                <div class="box-b-r"></div>
+                <div class="box-b-l"></div>
+            </div>
+            <div class="box-r-f">
+                <div class="box-f-r"></div>
+                <div class="box-f-l"></div>
+            </div>
+        </div>
+    </div>
+    <div class="box-h-f box-f"></div>
+</body>
+
+</html>

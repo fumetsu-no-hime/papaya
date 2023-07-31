@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f06060;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 520px;
+            height: 520px;
+            background-color: #d3d3d3;
+            border-radius: 20px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 50%;
+            height: 50%;
+            border: 5px solid #d3d3d3;
+            background-color: #f06060;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box answer"></div> -->
+
+<!-- 
+        <script>
+            let container = document.querySelector('.container');
+            console.log(container.innerText);
+            //       設起始值    哨兵符(監控停止值)i++ =>做完才加
+            for (let i = 0; i < 4; i++) {
+                console.log(i);
+                container.innerHTML = container.innerHTML + `<div class="box"></div>`;
+                
+            } -->
+
+            
+        <script>
+            let container = document.querySelector('.container');
+            
+            console.log(container.innerText);
+            //       設起始值    哨兵符(監控停止值)i++ =>做完才加
+            for (let i = 0; i < 4; i++) {
+                console.log(i);
+                container.innerHTML = container.innerHTML + `<div class="box"></div>`;
+                
+            }
+
+            let containerAll = document.querySelectorAll('.box');
+            let randomValue = 2;
+            containerAll[2].classList.add('answer');
+            let answer = document.querySelector('.answer');
+            answer.addEventListener('click' , function(){
+                alert('clear')
+            })
+
+
+            // answer.addEventListener('click', function(){
+            //     alert('clear');
+            // })
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax-simple</title>
+    <style>
+        body {
+            margin: 0;
+            height: 4000px;
+            font-family: "Lato", sans-serif;
+        }
+
+        #banner-1 {
+            width: 100%;
+            height: 100vh;
+            background-image: url(../img/img_parallax.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+            /* opacity: 0.7; */
+        }
+
+        #mask-1 {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.4;
+        }
+
+        #btn-1 {
+            background-color: rgb(96, 96, 96);
+            width: 360px;
+            height: 70px;
+            position: absolute;
+            left: calc(50% - 180px);
+            top: calc(50% - 35px);
+            text-align: center;
+            line-height: 70px;
+            letter-spacing: 12px;
+            font-size: 24px;
+            color: aliceblue;
+            font-style: normal;
+        }
+
+        #content-1 {
+            background-color: rgb(255, 255, 255);
+            width: calc(100% - 100px);
+            height: 300px;
+            padding: 50px;
+        }
+
+        #title-1 {
+            text-align: center;
+            letter-spacing: 4px;
+            font-size: 20px;
+        }
+
+        #text-1 {
+            text-align: justify;
+            margin-top: 15px;
+            color: rgb(114, 114, 114);
+            /* text-indent: 10px; */
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        #text-1::first-letter {
+            font-size: 24px;
+
+        }
+
+        #banner-2 {
+            width: 100%;
+            height: 600px;
+            background-image: url(../img/img_parallax2.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: aliceblue;
+            font-size: 32px;
+            /* line-height: 600px; */
+            letter-spacing: 12px;
+            position: relative;
+        }
+
+        #mask-2 {
+            width: 100%;
+            height: 600px;
+            background-color: white;
+            opacity: 0.4;
+        }
+
+        #btn-2 {
+            background-color: transparent;
+            width: 360px;
+            height: 70px;
+            position: absolute;
+            left: calc(50% - 180px);
+            top: calc(50% - 35px);
+            text-align: center;
+            line-height: 70px;
+            letter-spacing: 12px;
+            font-size: 24px;
+            color: aliceblue;
+            font-style: normal;
+        }
+
+        #content-2 {
+            background-color: rgb(42, 42, 42);
+            width: calc(100% - 100px);
+            height: 200px;
+            padding: 50px;
+        }
+
+        #text-2 {
+            text-align: justify;
+            margin-top: 15px;
+            color: rgb(179, 179, 179);
+            /* text-indent: 10px; */
+            padding: 20px;
+            font-size: 18px;
+            line-height: 100px;
+        }
+
+        #banner-3 {
+            width: 100%;
+            height: 600px;
+            background-image: url(../img/img_parallax3.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: aliceblue;
+            font-size: 32px;
+            line-height: 600px;
+            letter-spacing: 12px;
+            position: relative;
+        }
+
+        #mask-2 {
+            width: 100%;
+            height: 600px;
+            background-color: white;
+            opacity: 0.4;
+        }
+
+        #btn-2 {
+            background-color: transparent;
+            width: 360px;
+            height: 70px;
+            position: absolute;
+            left: calc(50% - 180px);
+            top: calc(50% - 35px);
+            text-align: center;
+            line-height: 70px;
+            letter-spacing: 12px;
+            font-size: 32px;
+            color: aliceblue;
+            font-style: normal;
+        }
+
+        #mask-3 {
+            width: 100%;
+            height: 600px;
+            background-color: white;
+            opacity: 0.4;
+        }
+
+        #btn-3 {
+            background-color: transparent;
+            width: 360px;
+            height: 70px;
+            position: absolute;
+            left: calc(50% - 180px);
+            top: calc(50% - 35px);
+            text-align: center;
+            line-height: 70px;
+            letter-spacing: 12px;
+            font-size: 32px;
+            color: aliceblue;
+            font-style: normal;
+        }
+
+        #content-3 {
+            background-color: rgb(42, 42, 42);
+            width: calc(100% - 100px);
+            height: 200px;
+            padding: 50px;
+        }
+
+        #text-3 {
+            text-align: justify;
+            margin-top: 15px;
+            color: rgb(179, 179, 179);
+            /* text-indent: 10px; */
+            padding: 20px;
+            font-size: 18px;
+            line-height: 100px;
+        }
+
+        #banner-4 {
+            width: 100%;
+            height: 900px;
+            background-image: url(../img/img_parallax.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: aliceblue;
+            font-size: 32px;
+            line-height: 600px;
+            letter-spacing: 12px;
+            position: relative;
+        }
+
+        #mask-4 {
+            width: 100%;
+            height: 900px;
+            background-color: white;
+            opacity: 0.4;
+        }
+
+        #btn-4 {
+            background-color: rgb(76, 76, 76);
+            width: 360px;
+            height: 70px;
+            position: absolute;
+            left: calc(50% - 180px);
+            top: calc(50% - 35px);
+            text-align: center;
+            line-height: 70px;
+            letter-spacing: 12px;
+            font-size: 32px;
+            color: aliceblue;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <pre>
+        1.有圖片區與內文區
+        2.圖片區內有logo
+        3.內文區有title與內容
+        4.內文區有間距
+        5.圖片有些許模糊
+        6.有視差滾動
+    </pre> -->
+    <div>
+        <div id="banner-1">
+            <div id="mask-1"></div>
+            <div id="btn-1">SCROLL DOWN</div>
+        </div>
+        <div id="content-1">
+            <div id="title-1">PARALLAX DEMO</div>
+            <div id="text-1">Parallax scrolling is a web site trend where the background content is moved at a different
+                speed than the foreground content while scrolling. Nascetur per nec posuere turpis, lectus nec libero
+                turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis
+                est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum
+                consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non
+                molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar,
+                in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas
+                vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel,
+                non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</div>
+        </div>
+        <div id="banner-2">
+            <div id="mask-2"></div>
+            <div id="btn-2">LESS HEIGHT</div>
+        </div>
+        <div id="content-2">
+            <div id="text-2">Scroll up and down to really get the feeling of how Parallax Scrolling works.</div>
+        </div>
+        <div id="banner-3">
+            <div id="mask-3"></div>
+            <div id="btn-3">SCROLL UP</div>
+        </div>
+        <div id="content-3">
+            <div id="text-3">Scroll up and down to really get the feeling of how Parallax Scrolling works.</div>
+        </div>
+        <div id="banner-4">
+            <div id="mask-4"></div>
+            <div id="btn-4">COOL!</div>
+        </div>
+    </div>
+</body>
+
+</html>

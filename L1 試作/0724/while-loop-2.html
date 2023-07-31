@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 300px;
+            height: 50px;
+        }
+
+        .status {
+            width: 200px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>1</button><button>2</button><button>3</button> -->
+    <br>
+    <br>
+    <button class="start">開始</button>&nbsp<button class="clear">清除</button>
+    <br>
+    <br>
+    <div class="status">狀態:<br>還沒開始</div>
+
+    <script>
+        // let btn = document.querySelector('.button')
+        // while loop
+        // while (判斷條件) {要做的事情}
+        // let i = 0;
+        // while (i < 10) {
+        //     console.log(i);
+        //     i++;
+        // }
+        //擲一個骰子
+
+        // let dice1 = Math.floor(Math.random() * 6 + 1);
+        // let dice2 = Math.floor(Math.random() * 6 + 1);
+        // let dice3 = Math.floor(Math.random() * 6 + 1);
+        //至少
+        let dice1 = 0;
+        let dice2 = 0;
+        let dice3 = 0;
+        let count = 0;
+        let start = document.querySelector('.start')
+        let myStatus = document.querySelector('.status')
+        console.log(myStatus);
+        start.addEventListener('click', function () {
+            while (!(dice1 == dice2 && dice2 == dice3)) {
+                count++;
+                dice1 = Math.floor(Math.random() * 6 + 1);
+                dice2 = Math.floor(Math.random() * 6 + 1);
+                dice3 = Math.floor(Math.random() * 6 + 1);
+                myStatus.innerHTML += `第${count}次:${dice1},${dice2},${dice3}`;
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

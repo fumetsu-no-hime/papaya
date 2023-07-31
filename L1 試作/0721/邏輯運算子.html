@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //邏輯運算子
+        // && 且 (and)
+        // || 或 (or)
+        // ! 不是...(not) 相反意思 =>ex : != (運用比較運算子上)
+        // let 也是宣告變數的方式 => 盡量用let宣告變數，比較不容易出問題
+        // const 設置一個常數 => 常數 : 永遠不會再變更的樹     
+        let a = true; //1
+        let b = false; //0
+        const c = false; //0
+        const d = true; //1
+        console.log(a && b );
+        console.log(a || b );
+        console.log(!a);//不是a
+        console.log(a && b && !c || d); //1*1*1+1 = true
+        console.log(a && !b || c || d); //1*1+0+1 = true
+        console.log(a && b && c || d); //1*0*1+1 = true
+        console.log(a && b && c); //1*0*1 = false
+        console.log(a && b || c); //1*0+0 = false
+        console.log(a || b && c); //1+0*0 = true
+
+    </script>
+
+
+</body>
+
+</html>

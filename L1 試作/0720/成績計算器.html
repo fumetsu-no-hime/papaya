@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    國文 <input type="number" id="chi" min="0" max="100">
+    英文 <input type="number" id="en" min="0" max="100">
+    數學 <input type="number" id="math" min="0" max="100">
+    <br>
+    <br>
+    <button id="btn"> 結算 </button>
+    <button id="btn-clear"> 清空 </button>
+    <br>
+    平均分數 <div id="avg"></div>
+    <br>
+    評級: <div id="result"></div>
+
+    <script>
+        var chi = document.querySelector('#chi');
+        var en = document.querySelector('#en');
+        var math = document.querySelector('#math');
+        var avg = document.querySelector('#avg');
+        var result = document.querySelector('#result');
+        var btn = document.querySelector('#btn');
+        var btnClear = document.querySelector('#btn-clear');
+
+
+        //匿名函數
+        btn.addEventListener('click', function () {
+            // console.log((chi.value * 1) + (en.value * 1)+ (math.value * 1));
+            var avg_score = (parseInt(chi.value) + parseInt(en.value) + parseInt(math.value)) / 3;
+            // var avg_score = ((chi.value * 1) + (en.value * 1) + (math.value * 1));
+            avg.innerText = avg_score.toFixed(2);
+            var result_class = '';
+            
+            if (avg_score >= 90) {
+                result_class = 'A';
+            } else if (avg_score >= 80) {
+                result_class = 'B';
+            } else if (avg_score >= 70) {
+                result_class = 'C';
+            } else if (avg_score >= 60) {
+                result_class = 'D';
+            } else {
+                result_class = '不及格';
+            }
+            
+            result.innerText = result_class;
+        })
+
+        btnClear.addEventListener('click', function () {
+            chi.value = 0;
+            en.value = 0;
+            math.value = 0;
+            avg.innerText = 0;
+            result.innerText = 0;
+        })
+    </script>
+</body>
+
+</html>

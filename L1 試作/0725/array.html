@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // array:陣列
+        let a = [];//空陣列
+        let b = [1, 2, 3];//數字陣列
+        let boxAll = ['box1', 'box2', 'box3'];//字串陣列
+        let mixArray = [1, 'box1', true];//混合式
+        let score = [100, 30, 50, 90, 70];//學生分數
+
+        // 取得Array中的資料
+        console.log(score);
+        console.log(score[0], score[1], score[5]);
+        let stud1 = score[0];
+        let total = score[0] + score[1] + score[2] + score[3] + score[4];
+        console.log('total = ', total);
+        total = 0;
+        for (let i = 0; i < 5; i++) {
+            total += score[i]
+        }
+
+        // for (let i = 0;i < 5 ; i++){
+        //     total += score[i]
+        // }
+        console.log('total2 = ', total);
+        //-------------------------------------------------------------------------
+
+        let testData = [100, 200, 300, 400, 500];
+        testData[2] = 3000;
+        console.log(testData);
+        console.log("原始資料:", testData);
+
+        // 使用 pop() 移除最後一筆資料
+        let removedElement = testData.pop();
+        let removedElement1 = testData.pop();
+        let removedElement2 = testData.pop();
+        let removedElement3 = testData.pop();
+
+        console.log("移除的資料:", removedElement);
+        console.log("移除的資料:", removedElement1);
+        console.log("移除的資料:", removedElement2);
+        console.log("移除的資料:", removedElement3);
+        console.log("修改後的資料:", testData);
+
+        //--------------------------------------------------------------------------------
+
+        let testData2 = [100, 200, 300, 400, 500];
+        console.log("清空前的資料:", testData2);
+        testData2.length = 0;
+        console.log("清空後的資料:", testData2);
+        //------------------------------------------------------------
+
+        let testData3 = [100, 200, 300, 400, 500];
+        console.log("原始資料:", testData3);
+        for (let i = 0; i <= 10; i++) {
+            testData3.push(101 + i);
+            
+        }
+        console.log("新增後的資料:", testData3);
+        //-------------------------------------------------
+
+        let testData4 = [100, 200, 300, 400, 500];
+        testData4.push(100, 200, 300, 400, 500);
+        console.log("新增後的資料:", testData4);
+        //-------------------------------------------------
+
+        let testData5 = [100, 200, 300, 400, 500];
+        testData5.splice(2,1);
+        console.log("消除後的資料:", testData5);
+        //-----------------------------------------------
+
+        let testData6 = [100, 200, 300, 400, 500];
+        let data_5 = testData6[4];
+        console.log('第五筆資料 =',data_5);
+        //-------------------------------------------------
+
+        let testData7 = [100, 200, 300, 400, 500];
+        testData7.splice(5,1,'600');
+        console.log(testData7);
+
+        //----------------------------------------------------
+        let testData8 = [100, 200, 300, 400, 500];
+        let len = testData8.length;
+        console.log('testData8的length : ',len);
+
+
+    </script>
+</body>
+
+</html>

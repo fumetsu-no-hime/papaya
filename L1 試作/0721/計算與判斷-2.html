@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    國文 <input type="number" id="ch" min="0" max="100">
+    英文 <input type="number" id="en" min="0" max="100">
+    數學 <input type="number" id="math" min="0" max="100">
+    <br>
+    <br>
+    <button id="btn"> 結算 </button>
+    <button id="btn-clear"> 清空 </button>
+    <br>
+    平均分數: <div id="avg"></div>
+    <br>
+    評級: <div id="result"></div>
+    <br>
+    結果查詢: <div id="pass"></div>
+
+    <script>
+        var ch = document.querySelector('#ch');
+        var en = document.querySelector('#en');
+        var math = document.querySelector('#math');
+        var avg = document.querySelector('#avg');
+        var result = document.querySelector('#result');
+        var btn = document.querySelector('#btn');
+        var btnClear = document.querySelector('#btn-clear');
+        let pass = document.querySelector('#pass');
+
+
+        //匿名函數
+        btn.addEventListener('click', function () {
+            // console.log((ch.value * 1) + (en.value * 1)+ (math.value * 1));
+            var avg_score = (parseInt(ch.value) + parseInt(en.value) + parseInt(math.value)) / 3;
+            // var avg_score = ((ch.value * 1) + (en.value * 1) + (math.value * 1));
+            avg.innerText = avg_score.toFixed(2);
+            var result_class = '';
+
+            if (avg_score >= 90) {
+                result_class = 'A';
+            } else if (avg_score >= 80) {
+                result_class = 'B';
+            } else if (avg_score >= 70) {
+                result_class = 'C';
+            } else if (avg_score >= 60) {
+                result_class = 'D';
+            } else {
+                result_class = '不及格';
+            }
+
+            if (ch.value >= 60 && en.value >= 60) {
+                passed = true;
+
+                
+            } else if (ch.value >= 60 && math.value >= 60) {
+                passed = true;
+
+
+            } else if (en.value >= 60 && math.value >= 60) {
+                passed = true;
+
+
+            } else {
+                passed = false;
+
+
+            }
+
+            if (passed) {
+                alert('恭喜!')
+                passed = '通過';
+            }
+
+            if (!passed) {
+                alert('殘念...')
+                passed = '再接再厲';
+            }
+
+            result.innerText = result_class;
+            pass.innerText = passed;
+        })
+
+        btnClear.addEventListener('click', function () {
+            ch.value = '';
+            en.value = '';
+            math.value = '';
+            avg.innerText = '';
+            result.innerText = '';
+            pass.innerText = '';
+        })
+    </script>
+</body>
+
+</html>

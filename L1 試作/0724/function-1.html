@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定義一個函式來輸出 0 到 99 的偶數
+        //i++ => i = i + 1
+        //i+=1 => i = i + 1
+        //++i => i = i + 1
+        //i+=100 => i = i +100
+        function printEvenNumbers() {
+            for (let i = 0; i <= 99; i++) {
+                if (i % 2 === 0) {
+                    console.log(('偶數'),i);
+                }
+            }
+        }
+        // 定義一個函式來輸出 0 到 99 的奇數
+        function printEvenNumbersTwo() {
+            for (let i = 0; i <= 99; i++) {
+                if (i % 2 !== 0) {
+                    console.log(('奇數'),i);
+                }
+            }
+        }
+
+        function printEvenNumbersTwo() {
+            for (let i = 1; i <= 99; i+=2) {
+                    console.log(('奇數-2'),i);
+            }
+        }
+
+        // 定義一個函式來輸出九九乘法表
+        function printMultiplicationTable() {
+            for (let i = 1; i <= 9; i++) {
+                for (let j = 1; j <= 9; j++) {
+                    const result = i * j;
+                    console.log(`${i} x ${j} = ${result}`);
+                }
+                console.log(""); // 加入空白行，用來區隔每個數字的乘法表
+            }
+        }
+
+        // 呼叫函式來執行
+        printMultiplicationTable();
+
+        // // 呼叫函式來執行
+        printEvenNumbers();
+        printEvenNumbersTwo()
+    </script>
+</body>
+
+</html>

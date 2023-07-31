@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-1 {
+            width: 600px;
+            height: 500px;
+            /* background 系列 */
+            background-color: aqua;
+            background-image: url('../img/eva01.jpg');
+            /* 預設 */
+            /* background-size: auto; */
+            /* background-size: contain; */
+            /* contain : 當圖片放大碰到，寬或高之一碰到div邊緣
+            =>有剩餘空間就重複 */
+            background-size: cover;
+            /* cover : 圖片碰到di圖片碰到div的邊緣，自動放大到寬和高都碰到 */
+            /* background-repeat: no-repeat; */
+            /* background-position如同拿望遠鏡在看 */
+            background-position: center;
+            /* opacity: 0.5; 不是把圖片變透明，是把整個div變透明*/
+            /* opacity: 0.5; */
+            border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- img:放置圖片的標籤
+    scr:圖片的位址或路徑(path) 
+    ./表示目前所在位置-->
+    <!-- ../代表上一層 -->
+    <img src="../img/Evangelion_3.0+1.0.png" alt="圖片">
+    <img src="../img/Evangelion_3.0+1.0.png" alt="圖片">
+    <!-- 背景圖片 -->
+    <div class="box-1"></div>
+</body>
+
+</html>

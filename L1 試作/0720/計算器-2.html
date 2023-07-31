@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 100px;
+            height: 30px;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            /* font-size: 18px; */
+            /* line-height: 30px; */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" id="num-1" value="0">
+    +
+    <input type="number" id="num-2" value="0">
+    =
+    <span class="result"></span>
+    <br>
+    <button id="add-btn">+ 計算</button>
+    <button id="sub-btn">- 計算</button>
+    <button id="mul-btn">* 計算</button>
+    <button id="div-btn">/ 計算</button>
+
+
+    <script>
+        var addBtn = document.querySelector('#add-btn');
+        var subBtn = document.querySelector('#sub-btn');
+        var mulBtn = document.querySelector('#mul-btn');
+        var divBtn = document.querySelector('#div-btn');
+        var input_1 = document.querySelector('#num-1');
+        var input_2 = document.querySelector('#num-2');
+        var result = document.querySelector('.result');
+
+        addBtn.addEventListener('click', function () {
+            result.innerHTML = parseInt(input_1.value) + parseInt(input_2.value);
+        })
+
+        subBtn.addEventListener('click', function () {
+            result.innerHTML = parseInt(input_1.value) - parseInt(input_2.value);
+
+        })
+
+        mulBtn.addEventListener('click', function () {
+            result.innerHTML = parseInt(input_1.value) * parseInt(input_2.value);
+        })
+
+        divBtn.addEventListener('click', function () {
+            result.innerHTML = parseInt(input_1.value) / parseInt(input_2.value);
+        })
+
+
+    </script>
+</body>
+
+</html>

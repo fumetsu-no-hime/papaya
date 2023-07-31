@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        nav {
+            width: 90%;
+            height: 80px;
+            background-color: blueviolet;
+            margin: auto;
+            display: flex;
+            padding: 10px 20px;
+            /* display: flex; */
+        }
+
+        .logo>img {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .menu-2 {
+            margin-left: auto;
+        }
+
+        .menu-1 ul,
+        .menu-2 ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .menu-1 ul {
+            width: 300px;
+            
+        }
+        .menu-2 ul {
+            width: 400px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/img/P.jpg" alt="">
+        </div>
+        <div class="menu-1">
+            <ul>
+                <li>左項1</li>
+                <li>左項2</li>
+                <li>左項3</li>
+                <li>左項4</li>
+                <li>左項5</li>
+            </ul>
+        </div>
+        <div class="menu-2">
+            <ul>
+                <li>右項1<i class="fa-solid fa-magnifying-glass"></i></li>
+                <li>右項2<i class="fa-solid fa-download"></i></li>
+                <li>右項3<i class="fa-solid fa-house"></i></li>
+                <li>右項4<i class="fa-solid fa-poo"></i></li>
+                <li>右項5<i class="fa-solid fa-bomb"></i></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>

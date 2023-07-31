@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px dashed aqua;
+            text-align: center;
+            margin: auto;
+        }
+
+        thead th {
+            border: 1px dashed aqua;
+        }
+
+        thead,
+        tfoot {
+            /* background-color: #333; */
+            border: 1px dashed aqua;
+            color: #000000;
+        }
+
+        tbody tr:nth-of-type(odd) {
+            background-color: rgb(255, 255, 255);
+        }
+
+        tbody tr:nth-of-type(even) {
+            /* background-color: rgb(88, 88, 88); */
+            color: rgb(0, 0, 0);
+        }
+
+        tbody tr td:nth-of-type(1) {
+            width: 400px;
+            text-align: center;
+        }
+
+        tbody tr td:nth-of-type(2),
+        td:nth-of-type(3) {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">BMI值 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="td-one"></td>
+                <td class="td-two">男性</td>
+                <td class="td-three">女性</td>
+            </tr>
+            <tr>
+                <td class="td-one">體重過輕</td>
+                <td class="td-two">＜20</td>
+                <td class="td-three">＜19</td>
+            </tr>
+            <tr>
+                <td class="td-one">正常範圍</td>
+                <td class="td-two">20-25</td>
+                <td class="td-three">19-25</td>
+            </tr>
+            <tr>
+                <td class="td-one">體體重過量</td>
+                <td class="td-two">25-30</td>
+                <td class="td-three">25-30</td>
+            </tr>
+            <tr>
+                <td class="td-one">肥胖</td>
+                <td class="td-two">30-40</td>
+                <td class="td-three">30-40</td>
+            </tr>
+            <tr>
+                <td class="td-one">病態肥胖</td>
+                <td class="td-two">＞40</td>
+                <td class="td-three">＞40</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let tdAll_1 = document.querySelectorAll('.td-one');
+        let tdAll_2 = document.querySelectorAll('.td-two');
+        let tdAll_3 = document.querySelectorAll('.td-three');
+        console.log(tdAll_1);
+        let gender = '男';
+
+        if (gender == '男' ) {
+            if(bmi >= 20){
+                tdAll(1);
+                tdAllBoy(1);
+            }
+        //女 
+        }else{
+            tdAll(1)
+            tdAllBoy(1);
+        };
+
+
+        //函數   函數名稱  參數
+        function tdAll(index) {
+            // alert(index)
+            tdAll_1[index].style.backgroundColor = 'purple';
+            // tdAll_2[0].style.backgroundColor = 'aqua';
+        };
+
+        function tdAllBoy(index) {
+            // alert(index)
+            tdAll_2[index].style.backgroundColor = 'blue';
+            // tdAll_2[0].style.backgroundColor = 'aqua';
+        };
+
+        function tdAllGirl(index) {
+            // tdAll_1[0].style.backgroundColor = 'purple';
+            tdAll_3[index].style.backgroundColor = 'aqua';
+        };
+    </script>
+</body>
+
+</html>

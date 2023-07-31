@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 運算子 + -   * %(mod)=>取餘數 /
+
+        var a = 1;
+        var b = 100;
+        var c = 2;
+        var d = 3;
+        var e = '234';
+        var f = true;
+        var g = false;
+        var h = '100'
+        var i = 'abc'
+
+        console.log(a + b);
+        console.log(100 - 2);
+        console.log(100 * 3);
+        console.log(100 / 2);
+        console.log(100 / 3);
+        console.log(e + h);//字串+字串 = 字串
+        console.log(e + i);
+        console.log(e - h);//減法把兩個都當數字來處理
+        console.log(e / h);
+        console.log(e - i);//NaN => not a number
+        console.log(b + h);//數字字串 + 數字，數字 + 數字字串 => 每一項都被當作字串
+        console.log(i + c);
+        console.log(d + h);
+        console.log(100 % 3);//餘數
+        console.log(100 % 2);
+        console.log(f,g,f + 1,g + 1,f + i);
+    </script>
+</body>
+
+</html>

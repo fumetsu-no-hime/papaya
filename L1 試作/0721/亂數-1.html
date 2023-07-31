@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //亂數 : 隨意出的數 random
+        //Math.random() => 0(含)~1(不含1)之間的數
+        let a = Math.random();
+        console.log(a);
+        //Math.random() => 0(含)~10(不含1)之間的數
+        a = Math.random() * 10;
+        console.log(a);
+        //Math.random() => 0(含)~100(不含1)之間的數
+        a = Math.random() * 100;
+        console.log(a);
+        console.log('===================================');
+        //Math.random() => 1(含)~10(不含1)之間的數
+        //math.floor() => 取地板數(整數) => 0.1 =>0，1.7 => 1
+        // Math.floor(0.99*10) = Math.floor(9.9)=9
+        //9 + 1 = 10
+        a = Math.floor( (Math.random() * 10) + 1);
+        console.log(a);
+
+        //Math.random() => 1(含)~100(不含1)之間的數
+        a = Math.random() * 100 + 1;
+        console.log(a);
+
+        //擲骰子 =>1~6
+        a = Math.floor(Math.random() * 6 + 1);
+        a = Math.floor((Math.random() * 6) + 1);
+        
+    </script>
+</body>
+
+</html>

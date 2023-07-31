@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>static-ball</title>
+    <style>
+        .ball {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: cadetblue;
+
+            /* 動畫時間 */
+            animation-name: static-ball;
+            /* 執行動畫完成的時間 */
+            animation-duration: 10s;
+        }
+
+        @keyframes static-ball {
+            0% {
+                /* 在這時間要做的動作 */
+                background-color: cadetblue;
+            }
+            25% {
+                background-color: black;
+                /* transform: scale(1.2); */
+            }
+            75% {
+                background-color: blueviolet;
+            }
+            100% {
+                background-color: blanchedalmond;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"></div>
+</body>
+
+</html>

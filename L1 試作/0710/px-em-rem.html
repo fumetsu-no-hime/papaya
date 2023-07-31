@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>px-em-rem</title>
+    <style>
+        .px-16 {
+            font-size: 16px;
+        }
+
+        .px-20 {
+            font-size: 20px;
+        }
+
+        .px-24 {
+            font-size: 24px;
+        }
+
+        .px-32 {
+            font-size: 32px;
+        }
+
+        .em-1dot2 {
+            font-size: 1.2em;
+        }
+
+        .rem-2 {
+            font-size: 1.2rem;
+        }
+
+        .percent-120 {
+            font-size: 120%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.px 絕對單位 根據像素變化 字體最小12px-->
+    <div class="px-16">16px
+        . <div class="px-20">20px
+            <div class="px-24">24px
+                <div class="px-32">32px</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2.em 相對單位 每個子元素的字體大小透過倍數乘以父層所以最內層大小=16*1.2*1.2*1.2*1.2 -->
+    <div class="em-1dot2">1.2em
+        <div class="em-1dot2">1.2em
+            <div class="em-1dot2">1.2em
+                <div class="em-1dot2">1.2em
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3.rem 相對單位 每個元素的字體大小透過"倍數"乘以"根元素" 所以每一個大小=16*1.2 -->
+    <div class="rem-2">2rem
+        <div class="rem-2">2rem
+            <div class="rem-2">2rem
+                <div class="rem-2">2rem
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4.%  百分比是相對單位 每個子元素的字體大小透過倍數乘以父層所以最內層大小=16*120%*120%*120%*120% -->
+    <div class="percent-120">120percent
+        <div class="percent-120">120percent
+            <div class="percent-120">120percent
+                <div class="percent-120">120percent
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

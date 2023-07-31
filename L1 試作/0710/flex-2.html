@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: bisque;
+            height: 500px;
+            border: 1px solid;
+            /* 使用彈性容器 */
+            display: flex;
+            /* 預設水平 */
+            flex-direction: column;
+            /* 排列方式 */
+            /* justify-content: center; */
+            /* 有間隔地分散式置中 */
+            justify-content: space-between;
+            /* 周圍有空白的間隔 */
+            /* justify-content: space-around; */
+            /*  垂直置中 */
+            /* align-items: center; */
+            /* 是否可捲動 */
+            flex-wrap: wrap;
+            /* 從開始處 */
+            /* justify-content: flex-start; */
+            /* 從結束處 */
+            /* justify-content: flex-end; */
+            /* flex-direction: row-reverse; */
+            align-items: center;
+            /* align-items: flex-end; */
+            /* align-items: flex-start; */
+            align-content: space-between;
+        }
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+</body>
+</html>

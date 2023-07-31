@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = {};//空物件
+        //物件名稱 物件屬性 屬性值   
+        let man = { name: 'asd', age: 25, gender: 'male', power: 10000, x: 100, y: 100 };
+        let otherman = { name: 'fgh', age: 25, gender: 'male', power: 8000 };
+        console.log(man);
+        console.log(man.name);
+        console.log(man.age);
+        console.log(man.gender);
+        console.log(man.power);
+
+        console.log(otherman);
+        console.log(otherman.name);
+        console.log(otherman.age);
+        console.log(otherman.gender);
+        console.log(otherman.power);
+
+        if (man.power > otherman.power) {
+            console.log('2p lose');
+        } else if (man.power < otherman.power) {
+            console.log('2p win');
+        } else {
+            console.log('平手');
+        }
+
+        man.sword = 1;
+        console.log(man['sword']);
+        console.log(man['age']);
+        delete(man.sword);
+    </script>
+</body>
+
+</html>

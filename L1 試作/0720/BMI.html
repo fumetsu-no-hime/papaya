@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .all {
+            width: 50%;
+            height: 560px;
+            border: 2px dashed aqua;
+            margin: 70px auto;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: blue;
+        }
+
+        .text {
+            font-size: 20px;
+        }
+
+        .bmi {
+            width: 400px;
+            height: 20px;
+            border: 1px solid black;
+            margin: 0 auto 50px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 50px;
+
+        }
+
+        button {
+            margin-left: 20px;
+            background-color: aqua;
+            color: blue;
+            border: 1px solid black;
+            height: 23px;
+            line-height: 20px;
+            font-weight: bold;
+        }
+
+        .bmi {
+            text-align: center;
+            line-height: 20px;
+        }
+
+        table,
+        td {
+            border: 1px dashed aqua;
+            text-align: center;
+            margin: auto;
+        }
+
+        thead th {
+            border: 1px dashed aqua;
+        }
+
+        thead,
+        tfoot {
+            /* background-color: #333; */
+            border: 1px dashed aqua;
+            color: #000000;
+        }
+
+        tbody tr:nth-of-type(odd) {
+            background-color: rgb(255, 255, 255);
+        }
+
+        tbody tr:nth-of-type(even) {
+            /* background-color: rgb(88, 88, 88); */
+            color: rgb(0, 0, 0);
+        }
+
+        tbody tr td:nth-of-type(1) {
+            width: 400px;
+            text-align: center;
+        }
+
+        tbody tr td:nth-of-type(2),
+        td:nth-of-type(3) {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="content">
+            <div class="title">BMI計算器</div>
+            <div class="text">身體質量指數(Body Mass Index，簡稱BMI)是公認用來估計肥胖程度的方法
+                <br>
+                <br>
+                BMI = 體重(公斤)/身高的平方(公尺)
+            </div>
+        </div>
+
+        <div class="container">
+            我的身高 <input type="number" id="height">公分
+            我的體重 <input type="number" id="weight">公斤
+            <button id="calc">計算</button>
+            <button id="rewrite">重新填寫</button>
+        </div>
+        <div class="bmi"></div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">BMI值 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>男性</td>
+                    <td>女性</td>
+                </tr>
+                <tr>
+                    <td>體重過輕</td>
+                    <td>＜20</td>
+                    <td>＜19</td>
+                </tr>
+                <tr>
+                    <td>正常範圍</td>
+                    <td>20-25</td>
+                    <td>19-25</td>
+                </tr>
+                <tr>
+                    <td>體體重過量</td>
+                    <td>25-30</td>
+                    <td>25-30</td>
+                </tr>
+                <tr>
+                    <td>肥胖</td>
+                    <td>30-40</td>
+                    <td>30-40</td>
+                </tr>
+                <tr>
+                    <td>病態肥胖</td>
+                    <td>＞40</td>
+                    <td>＞40</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+        var height = document.querySelector('#height');
+        var weight = document.querySelector('#weight');
+        var calc = document.querySelector('#calc');
+        var rewrite = document.querySelector('#rewrite');
+        var bmi = document.querySelector('.bmi');
+
+        calc.addEventListener('click', function () {
+            var bmiLevel = parseInt(weight.value) / (height.value / 100) ** 2;
+            bmi.innerText = bmiLevel.toFixed(2);
+        })
+
+        rewrite.addEventListener('click', function () {
+            height.value = '';
+            weight.value = '';
+            bmi.innerText = '';
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .all {
+            width: 500px;
+            height: 500px;
+            background-color: brown;
+            /* 設定為定位基準 */
+            position: relative;
+
+
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+        }
+
+        .green {
+            /* <!-- position系列 : 定位 系列 --> */
+            /* <!--position : static 定位 靜態 --> */
+            /* position relative : 相對位置來定位 */
+            background-color: green;
+            /* position: relative; */
+            /* top: 100px; */
+            /* left: 150px; */
+            /* right: 100px; */
+            position: absolute;
+            /* top: 200px; */
+            /* left: 200px; */
+            /* right: 100px; */
+            /* 水平置中與垂直置中的方法 */
+            left: calc(50% - 400px/2);
+            top: calc(50% - 400px/2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="box green"></div>
+    </div>
+    
+</body>
+
+</html>

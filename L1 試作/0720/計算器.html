@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 100px;
+            height: 30px;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            /* font-size: 18px; */
+            /* line-height: 30px; */
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="num-1" value="0">
+    +
+    <input type="number" id="num-2" value="0">
+    =
+    <span class="result"></span>
+    <button id="calc-btn">+ 計算</button>
+
+    <script>
+        //1.取得兩個數值
+        //2.按計算器按鈕 =>做加法
+        //3.結果顯示
+        var input_1 = document.querySelector('#num-1');
+        var input_2 = document.querySelector('#num-2');
+        //取得加法的元件
+        var calcBtn = document.querySelector('#calc-btn');
+        var result = document.querySelector('.result');
+        console.log(input_1);
+        console.log(input_2);
+
+        // var num_1 = input_1.value;
+        // var num_2 = input_2.value;
+        // var result = 0;
+        // console.log('num_1 =');
+        // console.log('num_2 =');
+       
+        calcBtn.addEventListener('click', function() {
+            alert(input_1.value);
+            alert(input_2.value);
+            // result.innerHTML = input_1.value*1  + input_2.value*1;
+            //parseInt() 函數 整數字串轉數值
+            result.innerHTML = parseInt(input_1.value)  + parseInt(input_2.value);
+        })
+
+
+    </script>
+</body>
+</html>

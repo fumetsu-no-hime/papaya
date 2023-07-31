@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .container {
+            width: 900px;
+            height: 900px;
+            padding: 10px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: pink;
+            border-radius: 10px;
+        }
+
+        .box {
+            background-color: yellow;
+            border: 10px solid pink;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.6;
+        }
+
+        #play {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            margin: auto;
+            text-align: center;
+            line-height: 300px;
+            border-radius: 50%;
+        }
+
+        #play:hover {
+            box-shadow: 0 0 100px 100px white;
+            animation: playrotate 1s infinite;
+        }
+
+        @keyframes playrotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #hint {
+            width: 200px;
+            height: 100px;
+            background-color: white;
+            position: fixed;
+            top: calc(50% - 50px);
+            line-height: 100px;
+            text-align: left;
+        }
+
+        #hint:hover {
+            box-shadow: 0 0 25px 25px white;
+        }
+
+        #countbox {
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            position: fixed;
+            line-height: 100px;
+            text-align: center;
+            top: calc(70% - 50px);
+            display: flex;
+        }
+
+        #rightcount {
+            width: 200px;
+            height: 100px;
+            background-color: transparent;
+            position: fixed;
+            top: calc(70% - 50px);
+            line-height: 100px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        #rightcount:hover {
+            box-shadow: 0 0 25px 25px white;
+        }
+
+        .shine {
+            animation: shineAnimation 1s;
+        }
+
+        @keyframes shineAnimation {
+            0% {
+                box-shadow: 0 0 10px 0 black;
+            }
+
+            50% {
+                box-shadow: 0 0 30px 10px black;
+            }
+
+            100% {
+                box-shadow: 0 0 10px 0 black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hint">給點提示</div>
+    <div id="countbox">
+        <span>答對次數：</span>
+        <div id="rightcount"></div>
+    </div>
+    <div class="container">
+        <div id="play"><span>開始遊戲</span></div>
+    </div>
+    <script>
+        let countright = document.querySelector('#rightcount');
+        let correctCount = 0;
+        let boxCount = 2; // Initial box count
+        let totalBoxes = boxCount * boxCount;
+
+        let playbtn = document.querySelector('#play')
+        playbtn.addEventListener('click', function () {
+            alert('開始囉！');
+            resetGame();
+        })
+
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        function resizeBoxes() {
+            let container = document.querySelector('.container');
+            let containerWidth = container.offsetWidth;
+            let boxSize = (containerWidth - 20) / boxCount; // Calculate the box size dynamically
+            let boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                box.style.width = `${boxSize}px`;
+                box.style.height = `${boxSize}px`;
+            });
+        }
+
+        function resetGame() {
+
+            let boxBig = document.querySelector('.container');
+            boxBig.innerHTML = '';
+            boxBig.innerText = '';
+
+            for (let i = 0; i < totalBoxes; i++) {
+                boxBig.innerHTML += `<div class="box"></div>`;
+            }
+
+            // Get the hint and answer elements
+            let hintBox = document.querySelector('#hint');
+            let answerBox = document.querySelector('.answer');
+
+            // Add a click event listener to the hint box
+            hintBox.addEventListener('click', function () {
+                // Apply the CSS animation class to the answer box
+                answer.classList.add('shine');
+
+                // Remove the animation class after the animation is finished (1 second in this case)
+                setTimeout(function () {
+                    answer.classList.remove('shine');
+                }, 1000);
+            });
+
+            let answerbox = document.querySelectorAll('.box');
+            radomIndex = Math.floor(Math.random() * totalBoxes);
+
+            answerbox[radomIndex].classList.add('answer');
+            let answer = document.querySelector('.answer');
+
+            answer.addEventListener('click', function () {
+                // alert('下一關');
+                correctCount++;
+                countright.innerText = correctCount;
+                boxCount++; // Increase box count
+                totalBoxes = boxCount * boxCount; // Update total number of boxes
+                resetGame(); // Renew the game with the new box count
+            });
+            const randomColor = getRandomColor();
+            answerbox.forEach(box => {
+                box.style.backgroundColor = randomColor;
+            });
+            resizeBoxes();
+        }
+    </script>
+</body>
+
+</html>

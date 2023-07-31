@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css權重</title>
+    <style>
+
+        * {
+            background-color: rgb(0, 255, 38);
+        }
+        body {
+            background-color: rgb(80, 26, 26);
+        }
+
+        .box-1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(225, 255, 0);
+        }
+
+        #a {
+            background-color: blueviolet;
+        }
+
+        .b {
+            background-color: rgb(0, 150, 55);
+        }
+
+        .box-1.b{
+            background-color: rgb(0, 0, 0);
+        }
+
+        .b {
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        css權重(right weight)，權重就是指優順序的意思，<br>
+        重越大，指令愈優先執行。
+    </div>
+    <P>
+        id > class > element(元素標籤) > *
+    </P>
+    <div class="box-1">我是紅色</div>
+    <div id="a" class="b">我是紫色</div>
+    <p>當class重複，或是多個class，如何選擇?=>看權重 目測可以看css選擇器 越多個越重</p>
+    <div class="b">我是綠色</div>
+    <div class="box-1 b"></div>
+    <p style="color: rgb(145, 80, 0); background-color: hotpink;">inline-style這個權限過大，所以不這樣寫 特殊情況才這樣寫</p>
+    <p>權重大魔王: !important 使得css權重便最大 沒事絕對不要用</p>
+</body>
+</html>

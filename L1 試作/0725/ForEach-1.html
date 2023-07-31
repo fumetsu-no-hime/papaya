@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <SCript>
+        let data = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+        data.forEach(function (item, index, arr) {
+            item += 1000;
+            console.log(item,index,arr);
+        })
+        // forEach 對陣列中的每一個元素做某些事情
+        //callback function
+        data.forEach(myFun)
+        function myFun(item, index) {
+            item += 1000;
+            console.log('(2)',item,index);
+        }
+    </SCript>
+
+
+
+</body>
+
+</html>

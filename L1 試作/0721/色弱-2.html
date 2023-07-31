@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f06060;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: relative;
+        }
+
+        .container {
+            width: 820px;
+            height: 820px;
+            background-color: #d3d3d3;
+            border-radius: 20px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            border: 5px solid #d3d3d3;
+            background-color: #f06060;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.6;
+        }
+
+        #play {
+            width: 200px;
+            height: 80px;
+            background-color: rgb(156, 156, 156);
+            margin: auto;
+            text-align: center;
+            font-size: 32px;
+            line-height: 80px;
+            border-radius: 10px;
+        }
+
+        #play:hover {
+            transform: scale(1.05);
+            background-color: #7e7e7e;
+            font-weight: bold;
+        }
+
+        #play:active {
+            transform: scale(1.0);
+            background-color: #6d6d6d;
+            font-weight: normal;
+        }
+
+        #score {
+            width: 60px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            background-color: rgb(136, 195, 247);
+            position: absolute;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="score">
+        <span>計分</span>
+        <div id="point"></div>
+    </div>
+    <div class="container">
+        <div id="play"><span>開始遊戲</span></div>
+    </div>
+
+    <script>
+        let container = document.querySelector('.container');
+        let boxCount = 2;
+        let allBox = boxCount * boxCount;
+        let pointArea = document.querySelector('#point')
+        let scoreBox = 0
+
+        let playbtn = document.querySelector('#play')
+        playbtn.addEventListener('click', function () {
+            // alert('開始囉！');
+            resetGame();
+        })
+
+        function getRandomColor() {
+            let r = Math.floor(Math.random() * 255) + 1;
+            let g = Math.floor(Math.random() * 255) + 1;
+            let b = Math.floor(Math.random() * 255) + 1;
+            return `rgb(${r},${g},${b})`;
+        }
+
+        function randomBox() {
+            let containerWidth = container.offsetWidth;
+            let boxSize = (containerWidth - 20) / boxCount;
+            let boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                box.style.width = `${boxSize}px`;
+                box.style.height = `${boxSize}px`;
+            });
+        }
+
+        function resetGame() {
+            if (scoreBox >= 15) {
+                alert('遊戲結束！'); // 或是做其他停止增加方塊的處理
+                return; // 不再執行以下的新增方塊的程式碼
+            }
+            let boxBig = document.querySelector('.container');
+            boxBig.innerHTML = '';
+            for (let i = 0; i < allBox; i++) {
+                container.innerHTML = container.innerHTML + `<div class="box"></div>`;
+            }
+            let containerAll = document.querySelectorAll('.box');
+            randomIndex = Math.floor((Math.random() * allBox));
+            containerAll[randomIndex].classList.add('answer');
+            let answer = document.querySelector('.answer');
+            answer.addEventListener('click', function () {
+                boxCount++; // Increase box count
+                allBox = boxCount * boxCount; // Update total number of boxes
+                scoreBox++;
+                pointArea.innerText = scoreBox;
+                resetGame(); // Renew the game with the new box count
+            })
+            const randomColor = getRandomColor();
+            containerAll.forEach(box => {
+                box.style.backgroundColor = randomColor;
+            });
+            randomBox();
+           
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>猜拳遊戲</title>
+</head>
+<body>
+  <h1>猜拳遊戲</h1>
+  <button onclick="play('rock')">石頭</button>
+  <button onclick="play('paper')">布</button>
+  <button onclick="play('scissors')">剪刀</button>
+  <div id="result"></div>
+
+  <script>
+    function play(userChoice) {
+      // 產生電腦隨機選擇
+      let computerChoices = ['rock', 'paper', 'scissors'];
+      let computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+      // 判斷遊戲結果
+      let result;
+      if (userChoice === computerChoice) {
+        result = "平手！";
+      } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result = "恭喜你，你贏了！";
+      } else {
+        result = "你輸了，再試一次！";
+      }
+
+      // 顯示遊戲結果
+      let resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `<h2>你選擇了：${userChoice}</h2><h2>電腦選擇了：${computerChoice}</h2><h1>${result}</h1>`;
+    }
+  </script>
+</body>
+</html>

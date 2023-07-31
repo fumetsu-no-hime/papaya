@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ham-menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .ham-menu {
+            background-color: rgb(220, 220, 220);
+            width: 100px;
+            height: 100px;
+            position: relative;
+            /* 由原來行內層級(inline) 轉換成區塊層級(block) */
+            display: block;
+        }
+
+        /* xxx yyy空一格代表所有後代=>xxx的後代yyy */
+        .ham-menu .line {
+            width: 80px;
+            height: 10px;
+            background-color: rgb(85, 85, 85);
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
+
+        .ham-menu #line-1 {
+            top: 25%;
+        }
+
+        .ham-menu #line-2 {
+            top: 50%;
+        }
+
+        .ham-menu #line-3 {
+            top: 75%;
+        }
+        /* 當漢堡menu被選按(打勾)時 */
+        /* +選最近的兄弟(而且不能選前面的兄弟) */
+        #ham-menu-switch:checked + .ham-menu #line-1 {
+            /* background-color: blue; */
+            top: 50%;
+            transform:translate(-50%, -50%) rotate(45deg);
+        }
+
+        #ham-menu-switch:checked + .ham-menu #line-3 {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);   
+        }
+        /* 當漢堡menu被選按(打勾)時 */
+        /* +選最近的兄弟(而且不能選前面的兄弟) */
+        #ham-menu-switch:checked + .ham-menu #line-2 {
+            /* 顯示模式: 隱藏 */
+            display: none;   
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 控制輸入器 -->
+    <!-- hidden  -->
+    <input type="checkbox" id="ham-menu-switch"hidden>
+    <!-- 漢堡menu的本體 -->
+    <label for="ham-menu-switch" class="ham-menu">
+        <div id="line-1" class="line"></div>
+        <div id="line-2" class="line"></div>
+        <div id="line-3" class="line"></div>
+    </label>
+</body>
+</html>

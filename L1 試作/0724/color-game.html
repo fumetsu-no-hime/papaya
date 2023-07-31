@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f06060;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: relative;
+        }
+
+        .box-big {
+            width: 720px;
+            height: 720px;
+            background-color: #d3d3d3;
+            border-radius: 20px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            /* width: 250px; */
+            /* height: 250px; */
+            border: 5px solid #d3d3d3;
+            background-color: #f06060;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.5;
+        }
+
+        .timer {
+            width: 200px;
+            height: 100px;
+            background-color: #afafaf;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid white;
+            position: absolute;
+            left: 20px;
+        }
+
+        .stop {
+            width: 200px;
+            height: 100px;
+            background-color: #afafaf;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid white;
+            position: absolute;
+            left: 20px;
+            top: 350px;
+        }
+
+        .giup {
+            width: 200px;
+            height: 100px;
+            background-color: #afafaf;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid white;
+            position: absolute;
+            left: 20px;
+            top: 500px;
+        }
+
+        .start {
+            width: 200px;
+            height: 100px;
+            background-color: #afafaf;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid white;
+            margin-right: 20px;
+            /* position: absolute;
+            left: 20px;
+            top: 500px; */
+        }
+
+       
+
+        .con {
+            width: 200px;
+            height: 100px;
+            background-color: #afafaf;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid white;
+            display: none;
+            /* position: absolute;
+            left: 20px;
+            top: 500px; */
+        }
+
+        .homepage {
+            width: 450px;
+            height: 130px;
+            /* background-color: wheat; */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            /* border: 2px solid white; */
+            align-items: center;
+        }
+
+        .gamepage {
+            display: none;
+        }
+
+        button {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homepage">
+        <button class="start">開始</button>
+        <button class="con">繼續</button>
+    </div>
+    <div class="gamepage">
+        <div class="timer">60</div>
+        <button class="stop">暫停</button>
+        <button class="giup">放棄</button>
+        <div class="box-big"></div>
+    </div>
+
+
+
+    <script>
+        // setInterval(countDown, 1000) 用來設定每過一段時間就自動執行某段函數(callback)，計時器會一直執行。
+        //設定每隔一秒 = 1000毫秒
+
+
+
+        let start = document.querySelector('.start')
+        let con = document.querySelector('.con')
+        let stop = document.querySelector('.stop')
+        let giup = document.querySelector('.giup')
+        let gamepage = document.querySelector('.gamepage')
+        let homepage = document.querySelector('.homepage')
+
+
+        start.addEventListener('click', () => {
+            let timer = document.querySelector('.timer')
+            clock = setInterval(countDown, 1000);
+
+            let sec = 60;
+            function countDown() {
+                timer.innerHTML = sec;
+                sec = sec - 1;
+                // console.log(sec, '呱');
+                //停止
+                if (sec < -1) {
+                    clearInterval(clock);
+                    alert('到此為止');
+                    gamepage.style.display = 'none';
+                    homepage.style.display = 'flex';
+
+                }
+                console.log(sec);
+            }
+            // clock = setInterval(countDown, 1000);
+            homepage.style.display = 'none';
+            gamepage.style.display = 'flex';
+            game();
+            // clock = setInterval(countDown, 1000);
+        })
+
+        stop.addEventListener('click', () => {
+            homepage.style.display = 'flex';
+            gamepage.style.display = 'none';
+            con.style.display = 'block';
+            start.style.display = 'none';
+            clearInterval(clock);
+        })
+
+        con.addEventListener('click', () => {
+            homepage.style.display = 'none';
+            gamepage.style.display = 'flex';
+            clock = setInterval(countDown, 1000);
+        })
+
+        giup.addEventListener('click', () => {
+            homepage.style.display = 'flex';
+            gamepage.style.display = 'none';
+            start.style.display = 'block';
+            con.style.display = 'none';
+            sec = 60; // 重置計時器秒數
+            count = 0; // 重置計數器
+            level = 2; // 重置遊戲難度等級
+            size = 100 / level; // 重置遊戲網格大小
+            clearInterval(clock);
+        })
+        //大盒子
+        //長小盒子 2=>2*2 3=>3*3......
+        //隨機顏色
+        //隨機答案盒
+        //過關
+        //繼續遊戲
+
+        let level = 2;
+        let size = 100 / level;
+        let count = 0;
+        const boxBig = document.querySelector('.box-big');
+        // game();
+        function game() {
+            let color = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+
+            boxBig.innerHTML = '';
+            for (let i = 0; i < level ** 2; i++) {
+                boxBig.innerHTML = boxBig.innerHTML + `<div class="box" style="width:${size}%; height:${size}%; background-color: ${color};"></div>`;
+            }
+            //產生1~level**2(包含)之間的數字
+            let randomAnswer = Math.floor(Math.random() * level ** 2 + 1);
+
+            let answer = document.querySelector(`.box:nth-of-type(${randomAnswer})`)
+            answer.classList.add('answer')
+            answer.style.opacity = `${0.5 + level * 0.01}`;
+            answer.addEventListener('click', function () {
+                count++;
+                if (count == level) {
+                    level++;
+                    size = 100 / level;
+                }
+                game();
+            });
+        }
+
+
+
+    </script>
+</body>
+
+</html>

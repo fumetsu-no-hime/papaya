@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    姓名<input type="text" name="name" id="name">
+    <button class="add">新增</button>
+    <button class="query">查詢</button>
+    <button class="del">刪除</button>
+    <div>查詢結果:<span class="query-result"></span></div>
+    <div>全部資料:<br><span class="all"></span></div>
+
+    <script>
+        let name = document.querySelector('#name')
+        let addBtn = document.querySelector('.add')
+        let searchBtn = document.querySelector('.query')
+        let delBtn = document.querySelector('.del')
+        let queryResult = document.querySelector('.query-result')
+        let all = document.querySelector('.all')
+        let asd = [];
+        all.innerText = '';
+        count = 0;
+
+
+
+        // function addName() {
+        //     let nameContent = name.value;
+        //     name.value = '';
+        //     asd.push(nameContent);
+        //     all.innerText += `${count}. ${nameContent}\n`
+        //     console.log('array', asd);
+        //     // console.log(nameContent);
+        // }
+
+        // addBtn.addEventListener('click', function () {
+        //     count++;
+
+        //     addName();
+        // })
+
+
+
+        // searchBtn.addEventListener('click', function () {
+        //     let searchAnswer = name.value;
+        //     let result = '查無結果';
+        //     asd.forEach(function (item, index) {
+        //         if (item === searchAnswer) {
+        //             result = item;
+        //         }
+        //     });
+        //     queryResult.innerText = result;
+        // })
+
+        // function addName() {
+        //     asd.push(name.value);
+        //     all.innerHTML = '';
+        //     asd.forEach(function (item, index) {
+        //         all.innerHTML += `第${index + 1}筆: ${item}<br>`;
+        //     })
+        // }
+
+        addBtn.addEventListener('click', function () {
+            asd.push(name.value);
+            console.log(asd);
+            name.value = '';
+            all.innerHTML = '';
+            asd.forEach(function (item, index) {
+                all.innerHTML += `第${index + 1}筆: ${item}<br>`;
+            })
+        })
+
+        searchBtn.addEventListener('click', function () {
+            let myIndex = asd.indexOf(name.value);
+            queryResult.innerHTML = '';
+            console.log(myIndex);
+            if (myIndex == -1) {
+                queryResult.innerHTML += `找不到`;
+            } else {
+                queryResult.innerHTML += `找到，在第${myIndex + 1}筆`;
+            }
+        })
+
+        delBtn.addEventListener('click', function () {
+            let myIndex = asd.indexOf(name.value);
+            queryResult.innerHTML = '';
+            console.log(myIndex);
+            if (myIndex == -1) {
+                queryResult.innerHTML += `找不到，無法刪除`;
+            } else {
+                asd.splice(myIndex, 1);
+                all.innerHTML = '';
+                asd.forEach(function (item, index) {
+                    all.innerHTML += `第${index + 1}筆: ${item}<br>`;
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+        body {
+            /* height: 100vh; */
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            /* 對全部做padding border自動扣除計算 */
+        }
+
+        #nav {
+            width: 366px;
+            height: 100vh;
+            background-color: gray;
+            padding: 75px;
+            position: fixed;
+        }
+
+        #logo {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(76, 76, 76);
+            margin: auto;
+            background-image: url(../img/cat.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .nav-btn {
+            width: 150px;
+            background-color: rgb(205, 205, 205);
+            height: 30px;
+            margin-left: calc(50% - 75px);
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-top: 10px;
+            /* color: rgb(195, 195, 195); */
+            float: left;
+        }
+
+        #nav-btn-all {
+            /* width: 200px; */
+            /* height: 250px; */
+            /* background-color: rgb(0, 136, 255); */
+            /* margin: auto; */
+            margin-top: 30px;
+            /* padding: 20px 0; */
+        }
+
+        #container {
+            width: calc(100vw - 366px);
+            height: 100vh;
+            background-color: rgb(189, 189, 189);
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #content {
+            width: 957px;
+            height: 570px;
+            /* background-color: rgb(214, 35, 35); */
+            margin: auto;
+            margin-top: calc((100vh - 570px)/2);
+        }
+
+        .content-img {
+            width: 33%;
+            height: 100%;
+            background-color: rgb(79, 79, 79);
+            float: left;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #img-1 {
+            background-image: url(../img/Evangelion_3.0+1.0.png);
+            float: left;
+        }
+
+        #img-2 {
+            background-image: url(../img/P.jpg);
+            margin-left: 0.5%;
+
+        }
+
+        #img-3 {
+            background-image: url(../img/erodame.png);
+            float: right;
+
+        }
+
+        #img-1:hover {
+            transform: scale(1.025)
+        }
+
+        #img-2:hover,
+        #img-3:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-btn:visited {
+            background-color: rgb(119, 112, 104);
+            color: rgb(206, 206, 206);
+        }
+
+        .nav-btn:hover {
+            background-color: rgb(255, 230, 198);
+            color: rgb(57, 44, 44);
+            transform: scale(1.1);
+        }
+
+        .nav-btn:active {
+            background-color: aliceblue;
+            color: rgb(75, 75, 75);
+            transform: scale(0.9);
+            opacity: 0.5;
+        }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+
+<body>
+    <form>F
+    <!-- 表單元素 -->
+    姓名: <input type="text" value="BBB">
+    <!-- 換行 -->
+    <br>
+    <label for="my-name">輸入姓名1</label>
+    <input id="my-name" type="text" value="輸入姓名1">
+    <br>
+    <label for="my-name-2">輸入姓名2
+        <input id="my-name-2" type="text" value="ccc">
+    </label>
+    <br>
+    <!-- radiobox -->
+    性別&nbsp; <label for="boy">男</label>
+    <!-- type="radio"用在多擇一 -->
+    <!-- 當name相同時只能多擇一 -->
+    <input type="radio" name="gender" id="boy">
+    <label for="girl">女</label>
+    <!-- radio用在多擇一 -->
+    <input type="radio" name="gender" id="girl">
+    <br>
+    年齡: <input type="number" min="1" max="200">
+    <br>
+    <!-- checkbox 多選 -->
+    午餐:
+    <input type="checkbox" id="beef"><label for="beef">牛肉</label>
+    <input type="checkbox">羊肉
+    <input type="checkbox">豬肉
+    <input type="checkbox">素食
+    <br>
+    電話:
+    <input type="tel">
+    <br>
+    Email:
+    <input type="email">
+    <br>
+    密碼:
+    <input type="password">
+    <br>
+    <input type="file">
+    <br>
+    <!-- 下拉式選單 -->
+    <select>
+        <option value="01">台中市</option>
+        <option value="02">台北市</option>
+        <option value="03">高雄市</option>
+    </select>
+    <br>
+    <br>
+    <button>我是按鈕</button>
+    </form>
+
+
+
+</body>
+
+</html>

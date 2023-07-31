@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="" alt="" srcset="">
+    </div>
+    <button>呱</button>
+    <br>
+    <br>
+    <br>
+    <p>大駝峰/小駝峰</p>
+    <p>FirstName/firstName</p>
+
+    <script>
+        let box = document.querySelector('.box')
+
+        // myBorder(5,'dashed','red');
+        myBorder(20, 'dotted', 'blue');
+
+
+        function myBorder(width, style, color) {
+            box.style.borderWidth = `${width}px`;
+            box.style.borderStyle = style;
+            box.style.borderColor = color;
+        }
+
+        show('實驗', 5, 'success', 10);
+
+        function show(msg, time, msg2, time2) {
+            for (let i = 0; i < time; i++) {
+                console.log(i, msg);
+            }
+
+            for (let i = 0; i < time2; i++) {
+                console.log(i, msg2);
+            }
+        };
+
+        // img();
+
+        // function img(imgName) {
+        //     let img_map = `./img/${imgName}.jpg`
+        //     box.src = 
+        // }
+
+        // let motherBuy = ["banana","orangr","apple","mango"];
+        // let eat = ['milk','apple'];
+
+        // // if (motherBuy.indexOf(eat[0]>0||motherBuy.indexOf(eat[1]))){
+        // //     alert('yes')
+        // // }
+
+        // if (motherBuy.includes(eat36)){
+        //     alert('yes')
+        // }
+        let age = 17;
+
+        let getAns = isAdult(age);
+        console.log(getAns);
+        console.log(showStr());
+
+        // function isAdult(age) {
+        //     let ans = false;
+        //     if (age >= 18) {
+        //         ans = true;
+        //     }
+        //     return ans;
+        // }
+        function isAdult(age) {
+            return age >= 18;
+            //判斷式回傳 trur  or  false
+        }
+
+        function showStr() {
+            return '呱';
+        }
+        //ES6 箭頭函式
+        //先宣告，才能執行!
+        let showStr2 = () => {
+            return '呱呱';
+        }
+
+        console.log(showStr2());
+
+        arr1 = [10, 20, 30];
+
+        arr1.forEach(function (item,index) {
+            console.log(index, item);
+        });
+        arr1.forEach((item, index) => {
+            console.log(item, index);
+        });
+
+        arr1.forEach(item => console.log(999, item)
+        );
+
+        // arr.forEach(x => x+=100)
+        //---------------------------------------------------
+
+        let btn = document.querySelector('button')
+        console.log(btn);
+        btn.addEventListener('click', ()=> console.log(1000000));
+
+    </script>
+</body>
+
+</html>

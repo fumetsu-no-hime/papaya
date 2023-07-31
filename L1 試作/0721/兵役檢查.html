@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select {
+            width: 50px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <span>性別:</span> <input type="radio" name="gender" value="女"><span>女</span>
+    &nbsp; &nbsp; &nbsp;
+    <input type="radio" name="gender" value="男"> <span>男</span>
+    <br>
+    <br>
+    <span>年齡:</span><select name="" id="age">
+        <!-- option[value="$@11"]{$@11}*20 -->
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+    </select>
+    <br>
+    <br>
+    <button class="check">查詢</button>
+    <br>
+    <br>
+    結果<div class="result"></div>
+
+
+    <script>
+        
+        let checkBtn = document.querySelector('.check');
+        
+
+        checkBtn.addEventListener('click', function () {
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let result = document.querySelector('.result');
+            let age = document.querySelector('#age');
+           
+
+            if (!gender){
+                alert('請選擇性別');
+                //return 程式執行到此回到起始點，不會再往下執行
+                return;
+            }
+            let genderValue = gender.value;
+            let ageValue = age.value;
+
+             console.log(genderValue);
+            console.log(ageValue);
+
+            if (genderValue == '女') {
+                result.innerText = '妳不用當兵，因為是女性';
+            }else{
+                if (ageValue >= 18) {
+                    result.innerText = '你是男性滿18歲，所以要當兵';
+                }else{
+                    result.innerText = '你是男性未滿18歲，所以還不用當兵';
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

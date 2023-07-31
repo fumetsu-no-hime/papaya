@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cityAll = [
+            ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', '臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '臺東縣', '澎湖縣', '金門縣', '連江縣'],
+            ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣'],
+            ['臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣'],
+            ['臺南市', '高雄市', '屏東縣'],
+            ['宜蘭縣', '花蓮縣', '臺東縣'],
+            ['澎湖縣', '金門縣', '連江縣'],
+        ];
+        //匿名
+        cityAll.forEach(function (item, index) {
+            console.log(item, index);
+        })
+        //箭頭函示
+        cityAll.forEach((item, index) => {
+            console.log(item, index);
+        })
+        //callback方式
+        cityAll.forEach(showCity);
+        //callback fn =>顯示城市名稱
+        function showCity(item, index) {
+            console.log(item, index);
+        };
+//--------------------------------------------------------------------
+        //array.map 做完不會改變原本陣列，而是回傳一個新陣列
+        const numbers1 = [45, 4, 9, 16, 25];
+        const numbers2 = numbers1.map(double);
+
+        function double(item, index, array) {
+            return item * 2;
+        }
+        console.log(numbers1,numbers2);
+
+        const numbers = [45, 4, 9, 16, 25];
+        const over18 = numbers.filter(myfilter)
+        function myfilter(value){
+            return value > 18;
+        }
+        console.log(numbers,over18);
+
+        const arr = [[1,2],[3,4],[5,6],[1,2]];
+        const newArr = arr.flat();
+        console.log(arr, newArr);
+
+        myArr = [1,2,3,4,5,6,[7],[8]]
+        myNew = myArr.flatMap(x =>x * 2);
+        console.log(888, myArr, myNew);
+
+
+    </script>
+</body>
+
+</html>

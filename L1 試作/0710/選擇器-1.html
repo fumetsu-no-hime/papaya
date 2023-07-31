@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css選擇器 */
+        /* id選擇器 */
+        #my-id {
+            color: red;
+        }
+
+        /* class選擇器 */
+        .my-id {
+            color: rgb(159, 159, 159);
+        }
+
+        /* 編輯選擇器 */
+        h1 {
+            color: green;
+        }
+
+        /* "空一格"是後代選擇器 會選擇相同類型的所有後代(包含兒子、孫子、曾孫) */
+        h1 div {
+            background-color: yellow;
+        }
+
+        .my-id .box-1 {
+            font-size: 32px;
+            background-color: blueviolet;
+        }
+
+        /* ">" 子代選擇器(所有的子代) */
+        .my-id>.box-1 {
+            background-color: brown;
+        }
+
+        /* "+" 相鄰的兄弟選擇器 找相鄰的兄弟，只能往右(往下)找 無法往前找*/
+        /* 無法找 */
+        h1+.my-id {
+            background-color: red;
+        }
+
+        /* 找的到 */
+        h1+h2 {
+            background-color: red;
+        }
+
+        /* 兄弟選擇器 =>找所有的兄弟 只能往右(往下)找 無法往前找*/
+        #my-id~div {
+            background-color: chartreuse;
+        }
+
+        .box-3 {
+            width: 100px;
+            height: 100px;
+
+        }
+
+        body .my-id .box-1 {
+            background-color: black;
+            font-size: 32px;
+            width: 200px;
+        }
+        /* 複合選擇器  =>同一個標籤有許多css，利用css名稱去組合來找*/
+        body .box-0.box-3 {
+            width: 400px;
+        }
+
+        /* 群組選擇器 */
+        #my-id, .my-id, h1 {
+            background-color: darkblue;
+            font-style: italic;
+        }
+
+        /* 屬性選擇器 */
+        input {
+            width: 100px;
+            height: 50px;
+            color: red;
+        }
+
+        input[type="text"] {
+            width: 300px;
+        }
+
+        input[type="checkbox"] {
+            width: 300px;
+        }
+
+        input[name="age"] {
+            color: blue;
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    年齡<input type="number" name="age">
+    <input type="text">
+    <input type="checkbox" name="gender">
+    <div>我是大哥</div>
+    <div id="my-id">123456789</div>
+    <div class="my-id">123456789
+        <div class="box box-1 ">DDDDD
+            <div class="box box-1 box-2 box-3">孫子Eeeeee
+                <div class="box-0 box-1 box-3">曾孫FFFFF</div>
+            </div>
+        </div>
+        <div class="box box-1">son</div>
+    </div>
+    <h1>40184651
+        <p>aaaaaa</p>
+        <div>ccccccc</div>
+        <div>bbbbbbb</div>
+    </h1>
+    <h2>兄弟選擇器</h2>
+    <div>~~~~~</div>
+    <div>~~~~~~</div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 300px;
+            height: 50px;
+        }
+
+        .status {
+            width: 200px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>1</button><button>2</button><button>3</button> -->
+    <button class="start">開始</button>
+    <br>
+    <br>
+    <button>dice1</button><button>dice1</button><button>dice3</button>
+    <br>
+    <br>
+    <div class="status">狀態:<br>還沒開始</div>
+
+    <script>
+        let dice1 = 0;
+        let dice2 = 0;
+        let dice3 = 0;
+        let count = 0;
+        let start = document.querySelector('.start')
+        let myStatus = document.querySelector('.status')
+        let dice1Box = document.querySelector('button:nth-of-type(1)')
+        let dice2Box = document.querySelector('button:nth-of-type(2)')
+        let dice3Box = document.querySelector('button:nth-of-type(3)')
+        console.log(myStatus);
+        myStatus.innerHTML = '';
+        start.addEventListener('click', function () {
+            while (true) {
+                count++;
+                dice1 = Math.floor(Math.random() * 6 + 1);
+                dice2 = Math.floor(Math.random() * 6 + 1);
+                dice3 = Math.floor(Math.random() * 6 + 1);
+                dice1Box = dice1;
+                dice2Box = dice2;
+                dice3Box = dice3;
+                myStatus.innerHTML += `第${count}次:${dice1},${dice2},${dice3}`;
+                if (!(dice1 == dice2 && dive2 == dice3)){
+                    break;
+                }
+                
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

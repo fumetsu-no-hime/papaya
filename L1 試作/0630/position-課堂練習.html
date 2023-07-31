@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-課堂練習</title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 300px;
+            background-color: rgb(0, 0, 0);
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(200, 109, 109);
+            position: absolute;
+        }
+
+
+        .b1-1 {
+            
+            top: calc(50% - 25px);
+            left: calc(50% - 25px);
+        }
+
+
+
+        .b2-1 {
+            
+            /* top: calc(50% - 25px); */
+            left: calc(50% - 25px);
+        }
+
+
+        .b3-1 {
+            
+            top: calc(100% - 50px);
+            left: calc(50% - 50px);
+        }
+
+
+
+        .b4-1 {
+            
+            top: calc(50% - 25px);
+            right: -25px;
+        }
+
+        .b5-1 {
+            
+            top: calc(100% - 50px);
+            right: 0px;
+        }
+
+        .b6-1 {
+            
+            top: calc(50% - 25px);
+            left:0px;
+        }
+
+        .b7-1 {
+            
+            top: calc(50% - 25px);
+            right: 0px;
+        }
+
+        .b8-1 {
+            
+            top: calc(100% - 25px);
+            left:0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2 b1-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b2-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b3-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b4-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b5-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b6-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b7-1"></div>
+    </div>
+    <div class="box1">
+        <div class="box2 b8-1"></div>
+    </div>
+</body>
+
+</html>

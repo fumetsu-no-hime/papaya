@@ -1,0 +1,67 @@
+// 優點:結構化的寫法
+header {
+    font-size: 50px;
+    color: red;
+    div {
+        background-color: darkslategray;
+        font-size: 24px;
+    }
+    nav {
+        a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: chartreuse;
+        }
+    }
+}
+
+.box-1 {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    color: crimson;
+
+    .box-2 {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(3, 180, 56);
+        color: rgb(123, 0, 127);
+    }
+}
+
+.pseudo {
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    left: 50%;
+
+    &::before {
+        color: rgb(81, 81, 254);
+        content: "我是before";
+        background-color: goldenrod;
+        font-size: 20px;
+        position: absolute;
+        left: -150px;
+    }
+
+    &::after {
+        width: 200px;
+        height: 200px;
+        color: goldenrod;
+        content: "我是after";
+        background-color: rgb(90, 90, 251);
+        background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDQ0NDQ8PDw0NDQ4NDw0NDxANDw8QGBEXFhUVExYYHSgiGBolHRUVITEiJSkrLi4vFx8zODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIANcA6gMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAAAQcFBggEAgP/xABAEAACAgECBAMFBQQGCwAAAAAAAQIDBAURBgcSITFBURNhcYGhFCIykbEII0JTFVJicrLwMzVDVGR0gpKi0eH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AvEAAAAAAAAAAAAAAIAkAAAAABBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACNyQAAAAAAACNwJB4tT1OjErduTdXTXHu5WTUF9SvdZ51aZjuUKI3ZUovbetKNb+EmBZ243KCz+fGW5P7Ph0wh5e2nKcvpsY188NWct+jF6f6vRL9dwOkAUHpvPjJi9srDqnH1pm65fk+xtuk87NLv6Y3RuxpSaW9kVKC+MkBZ4MfpWsY2bBWYl9d8PWualt8T37gSAAAAAAAAAAAAAAAAAAABAEgAARuGYriLXKNNxrMrJmo11pvbzlLbtFLzYHvy8uumuVt0411wTcpzkoxS+LKf4u53V1udOl1e1ku32m3tX8Yx8WV5xnxhncQZMa4xn7Hrax8OpOW/o5beL8PciwuX/J6qEIZWrJztl0yji77Rh6dfqwK09nrHEuVvtblWPza6KK18fwpdzedB5FXT6Z6hlxqX8VONH2kvh7R9voXhjY8KYKuqEa4R7KFcVCK/I/UDRtM5TaNjrvje3l5yyJys3+XgZOXL7Rmtv6Nxfiqkn+ZswArzP5NaPc5OFd1Llu/3VsulP3J9kaPxDyOyak56fkxyEv9jclVY/hJdm/yL7AHIe+o6HlOO9+DkpbNfh6l6rykvf3LP4P52tezo1WvdbqLzKv1nD/0WvxJoOLqWPOjNrjKtrtN7KVb9Yy8jnDjvgK3SpStqmsnClL7t9bUnD0jZt4fEDqHCyq764W1TjOuyKlCcGpRkn5pnpOZOV3MOzSLFjXtz0+yfePnRJvvKPu9V8zpXFyIWwjZXJShOKlGUXummB+wI3JAAAAAAAAAAEASAAAAAAEMD4tsUYuUntGKbbfgkjmHmdxfZreoeyo65YtU/Y41UU97J77ObXnu/At3nhr7wtJlVXJxtzJqlNPZqPjL6Fc8heHI5WdZnWRTrwklDdbp2y8PyXcCw+VfL6Gk0xyclKeoXQTk9t1RF9+iG/n6ssPYAABJ7JvySbb9EVHm878evMlVHHlLGhNwd+/d7PZyS80Bbg3PNpubXlUVZFL6qroRshL1T8DRebK1Lq056ZZZXKd7qm693FKS8Z+4CwbLYwW8pRivWTUV9TFaZxNh5eVkYdFqnfjKLsiu62f9V+Zo75VXZKT1DVcu6T7uEZdME/NbGZ4P5b4uj5Tysa22UpVuuUbGmnu/EDD8/MjKr0yj7K7FCWS43uvf8HQ2t9vBblWcqbrr9ShhtSuxMqM68mqe84dDXi/RnT11MLIuFkYzhJbOMl1J/JnkwNGxcZuWPj1VSfi64KLfzA5k5i8F3aLlyj0uWFbJvHv8mn36Jf2l9djaeTXMJ4ltemZkm8a6e1Nr8arG/wAMm3+Fl18T6FRqeHbh5EU4WL7svOuflJejRyfxFo12m5l2JcmrKp/dl4dUd/uyXxA7Ii9z6NB5OcVPU9MjC175OHtRa293NJfdl80b6gJAAAgkAAAAAAEEgAQCQAIZJDAoD9ovLlLOwqN/uQx5z6fLqb23N55E4ir0KqeyUrr77JNef3tlv8kVlz9yHPW+jbZVYtaXv3bZbfJ6O3D+B742P/zYG6AACJxUk4vwkmn8Gtig9T5H5n2txxr6Xhzm5K2xtWVxb32cP4ti/QBjuHNKjgYWNhxk5xx6oVKbWzlsvHYyDW/6kgBsAAAAAFP/ALQHDXtMerVKov2lG1VzX8t+Da9zLgNZ5lxT0PUt/wDdpP59gKN5J659i1iuuc+mnLhKmSfg5+MPqdOI434UltqOnv8A4uj/ABpHZCAEgAQSAAIJAAAAAAAIJAEBkhgc7/tD4/TqmNZt/pMXbf1cZf8A0sXkdl+10HHXnTbdS1/1br9TEftC6RK7Ax8uEd3i2vra8VCS2/Lc1bkDxIqMq3TbZbQyv3lW77K1LuvmgL+AAAAAAAAAAAAADVuaFyr0PUW/OhxW/q2bSVH+0BxBGvEq06Ev3l81bZFfy14b/MCl+FP9Y6f/AM3R/jR2Qcncr9FnnaxiQgn0U2RyLJbbqMYevzOsUBIAAgkAAQSAIJAAAAAAAAAA8eradXmY9uNdFSqug4ST79n5nJ/FegZGiahOhuUXXL2mPfHePVHfeMov1R14a7xlwjjaxjOjIjtJJuq6P465eqfp7gNU5bczaNRqhj5k40Z1ajF9ctoXvw6oN+fqiyF/lnKnGHAGfpFjc4Sux93KGVRGUkkvOe34Ge/hLmrqGnKNU5fasdeELm3NL3SA6cBXvDfN3S81xrtlLEul22v7V7/3/BG+YuTXdFTpshbB/wAVc4zj+aYH7AAAAAAPPnZtONB25FtdNa8Z2yUF9SoOM+dMIe0o0qHW+8ftc+0F5bwXn8QLB4540xtFxnba/aXS2jVjQklOb+D8IrzZzBr2r36nmWZV7c7rp7KK79K3+7CPuQbzNUykv3uVlXPt4zk1v9F7y++W3KyrTlHKzoxuze0kvGFPuXq/eB7eTvCH9Gaerbo7ZeYo22braVcdvuw+RYKIij6AAAAAAAAAAAAAQwJBCYYEgAAAAPznWpJxaTi1s4vumvejQOJOUOl50pWVxli3SbblQ9otvzcX2/IsMAc169yY1TGbeP7PMr8V0Pon/wBsjToz1DSbezysO2Ev7da3/RnYmx58rBpui43VV2RfipxUt/zA5fxea2uVvf7d7Tt+Gymlr6RRmcPndqsFtbXi3ejdcoP6MunK5faRc954GPv6xgo/oYfO5P6Lc01ROrb+TZKAFa2c89Sa2jjYcX6tWS+nUYzVecWs3qKhZTjbeLoqTcvj19RakeSmjJ79OQ/c73se3T+UmjUT9p9mdj8ldOVkV8mBzjk5mdqt37yeRmXSa2X3rO79IrtE3/hTkvm5Mozz5LFo7NwjLqukvT3F+afpGNix6ceiqqK8q4Rie1IDBcM8JYWlV9GHTGttbTtf3rJ/3pMzsUSAAAAAAAAAAAAAAAAAIJAAAAAfK37+h9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+W/cfQAAAAAAAAAAAAAAAAAAACCSGBIPmKPoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//Z);
+        background-size: cover;
+        background-position: center;
+        border: 2px solid;
+        position: absolute;
+        // left: -200px;
+    }
+    &:hover {
+        font-size: 48px;
+        transform: translate(15px,-40px);
+    }
+}
+

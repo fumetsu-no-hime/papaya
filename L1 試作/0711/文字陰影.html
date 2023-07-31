@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 文字單陰影 */
+        div {
+            font-size: 56px;
+            font-weight: bold;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 30px;
+            /* 右移 下移 模糊程度 陰影顏色*/
+            text-shadow: 2px 2px 3px 10px rgb(137, 137, 137);
+            /* 右移 下移 模糊程度 將陰影區域散出 陰影顏色*/
+            box-shadow: 15px 10px 5px 5px rgb(137, 137, 137);
+        }
+
+        div .one-deer {
+            font-size: 56px;
+            font-weight: bold;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 30px;
+            /* 右移 下移 模糊程度 陰影顏色*/
+            text-shadow: 2px 2px 5px rgb(255, 0, 0);
+        }
+
+        .multi-shadow {
+            /* 文字多陰影 */
+            font-size: 56px;
+            font-weight: bold;
+            /* 右移 下移 模糊程度 陰影顏色*/
+            text-shadow: 2px 2px 3px rgb(137, 137, 137),2px 2px 5px rgb(234, 0, 255);
+        }
+        /* 中空字 */
+        .empty-shadow {
+            font-size: 56px;
+            font-weight: bold;
+            color: aliceblue;
+            /* 右移 下移 模糊程度 陰影顏色*/
+            text-shadow: -1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0),
+            1px 0px rgb(0, 0, 0),0px 1px rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="one-deer">青雀</div>
+    <div class="multi-shadow">若陀</div>
+    <div class="empty-shadow">99999</div>
+</body>
+</html>

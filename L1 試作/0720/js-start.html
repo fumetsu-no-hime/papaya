@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .box,
+        .round {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            margin-bottom: 10px;
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <p>任務</p>
+    <p>1.找出一號盒, 將底色變紅</p>
+    <p>2.找出二號盒, 將底色變黃</p>
+    <p>3.找出三號盒, 將底色變綠</p>
+    <p>4.找出一號圓, 將文字變紅</p>
+    <p>5.找出二號圓, 將文字變綠</p>
+    <p>6.找出三號圓, 變紅底黃字</p>
+    <div class="playground">
+        <div id="box-1" class="box">1</div>
+        <div id="box-2" class="box">2</div>
+        <div id="box-3" class="box">3</div>
+        <div class="box-4 box">4</div>
+        <div id="round-1" class="round">1</div>
+        <div id="round-2" class="round">2</div>
+        <div id="round-3" class="round">3</div>
+        <div class="round-4 round">4</div>
+    </div>
+
+
+
+
+
+
+    <!-- javascript:放在body的最底部 -->
+    <script>
+        // 控制台
+        // console.log(123);
+        // console.log(456);
+        // console.log('微軟版面大爆炸');
+        // 在網頁文件，找選擇器('#id')，設定樣式.背景顏色 = 紅色
+        // js寫法是小駝峰式的寫法 querySelectorAll
+        // 用符號可以用"_" =>例:big_box(可)，bigBox(佳)
+        // 雙引號和單引號皆可，但建議用單引號
+        document.querySelector('#box-1').style.backgroundColor = 'red';
+        document.querySelector('#box-2').style.backgroundColor = 'yellow';
+        document.querySelector('#box-3').style.backgroundColor = 'green';
+        document.querySelector('#round-1').style.color = 'red';
+        document.querySelector('#round-2').style.color = 'green';
+        document.querySelector('#round-3').style.backgroundColor = 'red';
+        document.querySelector('#round-3').style.color = 'yellow';
+        document.querySelector('.box-4').style.color = 'white';
+        document.querySelector('.round-4').style.color = 'yellow';
+        document.querySelector('.box-4').style.backgroundColor = 'black';
+        document.querySelector('.round-4').style.backgroundColor = 'green';
+        document.querySelector('#box-1').addEventListener('click',function(){
+            console.log('???');
+        })
+        document.querySelector('.box-4').addEventListener('click',function(){
+            console.log('摸屁摸');
+            this.style.backgroundColor= 'purple';
+            alert('摸屁摸');
+        })
+        
+        
+    </script>
+</body>
+
+</html>

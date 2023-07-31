@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=" initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="result"></div>
+
+    <script>
+        //2科以上及格可以升級
+        // var result = document.querySelector('.result');
+        // let result = document.querySelector('.result');
+        const result = document.querySelector('.result');
+
+        let ch = 90;
+        let en = 50;
+        let math = 100;
+        let pass = '';
+
+        if (ch >= 60 && en >= 60 ) {
+            pass = true;
+        }else if (ch >= 60 && math >= 60){
+            pass = true;
+        }else if (en >= 60 && math >= 60){
+            pass = true;
+        }else {
+            pass = false;
+        }
+
+        console.log(pass);
+
+        if(pass) {
+            console.log('恭喜 你升級了');
+        }
+        // else{
+        //     console.log('很遺憾');
+        // }
+        if (!pass) {
+            console.log('殘念');
+        }
+
+        
+
+    </script>
+</body>
+</html>

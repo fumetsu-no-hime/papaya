@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            background-color: #5a5a5a;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .all {
+            width: 50%;
+            height: 70%;
+            border: 6px solid rgb(37, 37, 37);
+            margin: 70px auto;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* padding: 10px; */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sexual {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: rgb(0, 139, 28);
+        }
+
+        .text {
+            font-size: 20px;
+        }
+
+        .bmi {
+            width: 45%;
+            height: 20px;
+            border: 1px solid black;
+            margin-bottom: 50px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 50px;
+
+        }
+
+        button {
+            margin-left: 20px;
+            background-color: rgb(43, 0, 122);
+            color: rgb(255, 255, 255);
+            border: 1px solid black;
+            height: 23px;
+            line-height: 20px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background-color: darkorchid;
+        }
+
+        button:active {
+            transform: scale(0.95);
+            background-color: rgb(78, 0, 117);
+        }
+
+        .bmi {
+            text-align: center;
+            line-height: 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        table,
+        td {
+            border: 1px solid rgb(46, 46, 46);
+            text-align: center;
+            /* margin: auto; */
+        }
+
+        thead th {
+            border: 1px solid rgb(68, 68, 68);
+        }
+
+        thead,
+        tfoot {
+            /* background-color: #333; */
+            border: 1px solid rgb(68, 68, 68);
+            color: #000000;
+        }
+
+        tbody tr:nth-of-type(odd) {
+            background-color: rgb(255, 255, 255);
+        }
+
+        tbody tr:nth-of-type(even) {
+            /* background-color: rgb(88, 88, 88); */
+            color: rgb(0, 0, 0);
+        }
+
+        tbody tr td:nth-of-type(1) {
+            width: 400px;
+            text-align: center;
+        }
+
+        tbody tr td:nth-of-type(2),
+        td:nth-of-type(3) {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="content">
+            <div class="title">BMI計算器</div>
+            <div class="text">身體質量指數(Body Mass Index，簡稱BMI)是公認用來估計肥胖程度的方法
+                <br>
+                <br>
+                BMI = 體重(公斤)/身高的平方(公尺)
+            </div>
+        </div>
+        <div class="sexual">
+            <span>性別:</span><input type="radio" name="gender" value="男"><span>男</span>
+            <!-- &nbsp;&nbsp;&nbsp; -->
+            <input type="radio" name="gender" value="女"><span>女</span>
+        </div>
+
+
+        <div class="container">
+            我的身高:&nbsp; <input type="number" id="height">&nbsp; 公分
+            &nbsp; &nbsp;
+            我的體重:&nbsp; <input type="number" id="weight">&nbsp; 公斤
+            <button id="calc">計算</button>
+            <button id="rewrite">重新填寫</button>
+        </div>
+        <div class="bmi"></div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">BMI值 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- &gt &lt -->
+                    <td class="td-one"></td>
+                    <td class="td-two">男性</td>
+                    <td class="td-three">女性</td>
+                </tr>
+                <tr>
+                    <td class="td-one">體重過輕</td>
+                    <td class="td-two">＜20</td>
+                    <td class="td-three">＜19</td>
+                </tr>
+                <tr>
+                    <td class="td-one">正常範圍</td>
+                    <td class="td-two">20-25</td>
+                    <td class="td-three">19-25</td>
+                </tr>
+                <tr>
+                    <td class="td-one">體體重過量</td>
+                    <td class="td-two">25-30</td>
+                    <td class="td-three">25-30</td>
+                </tr>
+                <tr>
+                    <td class="td-one">肥胖</td>
+                    <td class="td-two">30-40</td>
+                    <td class="td-three">30-40</td>
+                </tr>
+                <tr>
+                    <td class="td-one">病態肥胖</td>
+                    <td class="td-two">＞40</td>
+                    <td class="td-three">＞40</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+        var height = document.querySelector('#height');
+        var weight = document.querySelector('#weight');
+        var calc = document.querySelector('#calc');
+        var rewrite = document.querySelector('#rewrite');
+        var bmi = document.querySelector('.bmi');
+        let tdAll_1 = document.querySelectorAll('.td-one');
+        let tdAll_2 = document.querySelectorAll('.td-two');
+        let tdAll_3 = document.querySelectorAll('.td-three');
+        let index = 0;
+
+
+        calc.addEventListener('click', function () {
+            let gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                alert('請選擇性別');
+                return;
+            }
+            
+
+            var bmiLevel = parseInt(weight.value) / (height.value / 100) ** 2;
+            bmi.innerText = bmiLevel.toFixed(2);
+
+            if (!bmiLevel) {
+                alert('輸入正確身高與體重');
+                return;
+            }
+
+            
+            // console.log(gender);
+            if (gender.value == '男') {
+                if (bmi.innerText < 20) {
+                    tdAll(1);
+                    tdAllBoy(1);
+                } else if (bmi.innerText > 20 && bmi.innerText < 25) {
+                    tdAll(2);
+                    tdAllBoy(2);
+                } else if (bmi.innerText > 25 && bmi.innerText < 30) {
+                    tdAll(3);
+                    tdAllBoy(3);
+                } else if (bmi.innerText > 30 && bmi.innerText < 40) {
+                    tdAll(4);
+                    tdAllBoy(4);
+                } else if (bmi.innerText > 40) {
+                    tdAll(5);
+                    tdAllBoy(5);
+                }
+            }
+
+            else {
+                if (bmi.innerText < 19) {
+                    tdAll(1);
+                    tdAllGirl(1);
+                } else if (bmi.innerText >= 19 && bmi.innerText < 25) {
+                    tdAll(2);
+                    tdAllGirl(2);
+                } else if (bmi.innerText >= 25 && bmi.innerText < 30) {
+                    tdAll(3);
+                    tdAllGirl(3);
+                } else if (bmi.innerText >= 30 && bmi.innerText < 40) {
+                    tdAll(4);
+                    tdAllGirl(4);
+                } else if (bmi.innerText > 40) {
+                    tdAll(5);
+                    tdAllGirl(5);
+                }
+            }
+        })
+
+        rewrite.addEventListener('click', function () {
+            height.value = '';
+            weight.value = '';
+            bmi.innerText = '';
+
+            for (let i = 0; i < 6; i++) {
+                tdAll_1[i].style.backgroundColor = 'unset';
+                tdAll_2[i].style.backgroundColor = 'unset';
+                tdAll_3[i].style.backgroundColor = 'unset';
+            }
+        })
+
+        function tdAll(index) {
+            tdAll_1[index].style.backgroundColor = 'bisque';
+        };
+
+        function tdAllBoy(index) {
+            tdAll_2[index].style.backgroundColor = 'bisque';
+        };
+
+        function tdAllGirl(index) {
+            tdAll_3[index].style.backgroundColor = 'bisque';
+        };
+
+        function resetColor() {
+            tdAll_1.style.backgroundColor = 'white';
+            tdAll_2.style.backgroundColor = 'white';
+            tdAll_3.style.backgroundColor = 'white';
+        }
+    </script>
+</body>
+
+</html>

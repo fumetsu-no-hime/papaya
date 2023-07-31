@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roll-ball</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            width: 700px;
+            height: 700px;
+            background-color: rgb(6, 145, 209);
+            margin: 30px auto;
+            position: relative;
+            border-radius: 50%;
+            background-image: url(../img/images.jpg);
+            background-size: cover;
+            background-position: center;
+            animation-duration: 0.1s;
+            animation-iteration-count: infinite;
+            animation-name: box;
+            /* border: 5px solid black; */
+        }
+
+        .ball {
+            width: 200px;
+            height: 200px;
+            /* border-radius: 50%; */
+            background-color: rgb(0, 247, 255);
+            background-image: url(../img/images.jpg);
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            /* 動畫時間 */
+            /* 執行動畫完成的時間 */
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            border-radius: 50%;
+            border: 5px solid black;
+        }
+
+        #ball-1 {
+            animation-name: roll-ball;
+        }
+
+        #ball-2 {
+            animation-name: roll-ball-2;
+        }
+
+        #ball-3 {
+            animation-name: roll-ball-3;
+        }
+
+        #ball-4 {
+            animation-name: roll-ball-4;
+        }
+
+        @keyframes roll-ball {
+            0% {
+                /* 在這時間要做的動作 */
+                background-color: cadetblue;
+                left: 0;
+                top: 0;
+                transform: translate(0%, 0%);
+                transform: rotate(0deg);
+            }
+
+            25% {
+                background-color: rgb(51, 255, 0);
+                transform: scale(1.2);
+                left: calc(100% - 200px);
+                top: 0;
+                transform: translate(-100%, 0%);
+                transform: rotate(-90deg);
+                /* transform: scale(1.2); */
+            }
+
+            50% {
+                background-color: rgb(132, 0, 255);
+                left: calc(100% - 200px);
+                top: calc(100% - 200px);
+                transform: translate(-100%, -100%);
+                transform: scale(1.3);
+                transform: rotate(-180deg);
+                /* transform: scale(1.3); */
+            }
+
+            75% {
+                background-color: rgb(255, 153, 0);
+                left: 0;
+                top: calc(100% - 200px);
+                transform: translate(0%, -100%);
+                transform: rotate(-270deg);
+                /* transform: scale(1.4); */
+            }
+
+            100% {
+                background-color: rgb(255, 0, 51);
+                left: 0;
+                top: 0;
+                transform: translate(0%, 0%);
+                transform: rotate(-360deg);
+                /* transform: scale(1.5); */
+            }
+
+
+        }
+
+        @keyframes roll-ball-2 {
+            0% {
+                /* 在這時間要做的動作 */
+                background-color: cadetblue;
+                left: calc(100% - 200px);
+                top: 0;
+                transform: translate(0%, 0%);
+                transform: rotate(0deg);
+            }
+
+            25% {
+                background-color: rgb(51, 255, 0);
+                transform: scale(1.2);
+                left: calc(100% - 200px);
+                top: calc(100% - 200px);
+                transform: translate(-100%, 0%);
+                transform: rotate(-90deg);
+                /* transform: scale(1.2); */
+            }
+
+            50% {
+                background-color: rgb(132, 0, 255);
+                left: 0;
+                top: calc(100% - 200px);
+                transform: translate(-100%, -100%);
+                transform: scale(1.3);
+                transform: rotate(-180deg);
+                /* transform: scale(1.3); */
+            }
+
+            75% {
+                background-color: rgb(255, 153, 0);
+                left: 0;
+                top: 0;
+                transform: translate(0%, -100%);
+                transform: rotate(-270deg);
+                /* transform: scale(1.4); */
+            }
+
+            100% {
+                background-color: rgb(255, 0, 51);
+                left: calc(100% - 200px);
+                top: 0;
+                transform: translate(0%, 0%);
+                transform: rotate(-360deg);
+                /* transform: scale(1.5); */
+            }
+        }
+
+
+        @keyframes roll-ball-3 {
+            0% {
+                /* 在這時間要做的動作 */
+                background-color: cadetblue;
+                left: calc(100% - 200px);
+                top: calc(100% - 200px);
+                transform: translate(0%, 0%);
+                transform: rotate(0deg);
+            }
+
+            25% {
+                background-color: rgb(51, 255, 0);
+                transform: scale(1.2);
+                left: 0;
+                top: calc(100% - 200px);
+                transform: translate(-100%, 0%);
+                transform: rotate(-90deg);
+                /* transform: scale(1.2); */
+            }
+
+            50% {
+                background-color: rgb(132, 0, 255);
+                left: 0;
+                top: 0;
+                transform: translate(-100%, -100%);
+                transform: scale(1.3);
+                transform: rotate(-180deg);
+                /* transform: scale(1.3); */
+            }
+
+            75% {
+                background-color: rgb(255, 153, 0);
+                left: calc(100% - 200px);
+                top: 0;
+                transform: translate(0%, -100%);
+                transform: rotate(-270deg);
+                /* transform: scale(1.4); */
+            }
+
+            100% {
+                background-color: rgb(255, 0, 51);
+                left: calc(100% - 200px);
+                top: calc(100% - 200px);
+                transform: translate(0%, 0%);
+                transform: rotate(-360deg);
+                /* transform: scale(1.5); */
+            }
+        }
+
+        @keyframes roll-ball-4 {
+            0% {
+                /* 在這時間要做的動作 */
+                background-color: cadetblue;
+                left: 0;
+                top: calc(100% - 200px);
+                transform: translate(0%, 0%);
+                transform: rotate(0deg);
+            }
+
+            25% {
+                background-color: rgb(51, 255, 0);
+                transform: scale(1.2);
+                left: 0;
+                top: 0;
+                transform: translate(-100%, 0%);
+                transform: rotate(-90deg);
+                /* transform: scale(1.2); */
+            }
+
+            50% {
+                background-color: rgb(132, 0, 255);
+                left: calc(100% - 200px);
+                top: 0;
+                transform: translate(-100%, -100%);
+                transform: scale(1.3);
+                transform: rotate(-180deg);
+                /* transform: scale(1.3); */
+            }
+
+            75% {
+                background-color: rgb(255, 153, 0);
+                left: calc(100% - 200px);
+                top: calc(100% - 200px);
+                transform: translate(0%, -100%);
+                transform: rotate(-270deg);
+                /* transform: scale(1.4); */
+            }
+
+            100% {
+                background-color: rgb(255, 0, 51);
+                left: 0;
+                top: calc(100% - 200px);
+                transform: translate(0%, 0%);
+                transform: rotate(-360deg);
+                /* transform: scale(1.5); */
+            }
+        }
+
+        @keyframes box {
+            0% {
+                background-color: rgb(51, 255, 0);
+            }
+
+            25% {
+                background-color: rgb(132, 0, 255);
+                transform: rotate(90deg);
+            }
+
+            50% {
+                background-color: rgb(255, 153, 0);
+                transform: rotate(180deg);
+            }
+
+            75% {
+                background-color: rgb(255, 0, 51);
+                transform: rotate(270deg);
+            }
+
+            100% {
+                background-color: cadetblue;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="ball-1" class="ball"></div>
+        <div id="ball-2" class="ball"></div>
+        <div id="ball-3" class="ball"></div>
+        <div id="ball-4" class="ball"></div>
+    </div>
+</body>
+
+</html>

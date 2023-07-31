@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC2</title>
+    <style>
+        body {
+            /* height: 100vh; */
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            /* 對全部做padding border自動扣除計算 */
+        }
+
+        #nav {
+            width: 366px;
+            height: 100vh;
+            background-color: gray;
+            padding: 75px;
+            /* position: fixed; */
+            float: left;
+        }
+
+        #logo {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(76, 76, 76);
+            margin: auto;
+            background-image: url(./img/cat.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .nav-btn {
+            width: 150px;
+            background-color: rgb(205, 205, 205);
+            height: 30px;
+            margin-left: calc(50% - 75px);
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-top: 10px;
+            /* color: rgb(195, 195, 195); */
+            float: left;
+        }
+
+        #nav-btn-all {
+            /* width: 200px; */
+            /* height: 250px; */
+            /* background-color: rgb(0, 136, 255); */
+            /* margin: auto; */
+            margin-top: 30px;
+            /* padding: 20px 0; */
+        }
+
+        #container {
+            width: calc(100% - 366px);
+            height: 100vh;
+            background-color: rgb(189, 189, 189);
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #content {
+            width: 800px;
+            height: 570px;
+            /* background-color: rgb(214, 35, 35); */
+            margin: auto;
+            margin-top: calc((100vh - 570px)/2);
+        }
+
+        .content-img {
+            height: calc(50% - 5px);
+            background-color: rgb(79, 79, 79);
+            float: left;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #img-1 {
+            background-image: url(./img/Evangelion_3.0+1.0.png);
+            float: left;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #img-2 {
+            background-image: url(./img/P.jpg);
+            /* margin-left: 0.5%; */
+            width: calc(50% - 5px);
+
+        }
+
+        #img-3 {
+            background-image: url(./img/erodame.png);
+            float: right;
+            width: calc(50% - 5px);
+            margin-left: 10px;
+
+        }
+
+        #img-1:hover {
+            transform: scale(1.025)
+        }
+
+        #img-2:hover,
+        #img-3:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-btn:visited {
+            background-color: rgb(119, 112, 104);
+            color: rgb(206, 206, 206);
+        }
+
+        .nav-btn:hover {
+            background-color: rgb(255, 230, 198);
+            color: rgb(57, 44, 44);
+            transform: scale(1.1);
+        }
+
+        .nav-btn:active {
+            background-color: aliceblue;
+            color: rgb(75, 75, 75);
+            transform: scale(0.9);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div id="logo"></div>
+        <div id="nav-btn-all">
+            <a href="https://www.youtube.com/" target="_blank">
+                <div id="nav-btn-1" class="nav-btn">youtube</div>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <div id="nav-btn-1" class="nav-btn">google</div>
+            </a>
+            <a href="https://zh-tw.facebook.com/" target="_blank">
+                <div id="nav-btn-1" class="nav-btn">facebook</div>
+            </a>
+            <!-- <div><a href="https://www.youtube.com/" target="_blank" id="nav-btn-1" class="nav-btn">youtube</a></div>
+            <div><a href="https://www.google.com.tw/?hl=zh_TW" target="_blank" id="nav-btn-2" class="nav-btn">google</a>
+            </div>
+            <div><a href="https://zh-tw.facebook.com/" target="_blank" id="nav-btn-3" class="nav-btn">facebook</a></div> -->
+        </div>
+    </div>
+    <div id="container">
+        <div id="content">
+            <div id="img-1" class="content-img"></div>
+            <div id="img-2" class="content-img"></div>
+            <div id="img-3" class="content-img"></div>
+        </div>
+    </div>
+</body>
+
+</html>

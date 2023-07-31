@@ -1,0 +1,98 @@
+color-game-simple-3.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f06060;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+
+        }
+
+        .box-big {
+            width: 520px;
+            height: 520px;
+            background-color: #d3d3d3;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+
+        .box {
+            /* width: 250px;
+            height: 250px; */
+            background-color: aqua;
+            border: 5px solid #d3d3d3;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-big"></div>
+    <script>
+        // 解析遊戲
+        // v 1.大盒子
+        // v 2.長小盒子 2=>2*2 個, 3=>3*3個...
+        //   2-1. 盒子大小 2 => 50%  3 => (100/3)%  4=> (100/4)%;
+        // v 3.隨機給顏色 
+        // v 4.隨機給答案盒
+        // v 5.過關
+        // 6.繼續遊戲
+        let level = 2; // 關卡
+        let size = 100 / level; // 內盒大小
+        let count = 0; // 該level 的過關次數 
+
+        const boxBig = document.querySelector('.box-big');
+        // 呼叫遊戲(執行遊戲)
+        game();
+
+
+        function game() {
+            let color = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+            boxBig.innerHTML = '';
+            for (let i = 0; i < level ** 2; i++) {
+                boxBig.innerHTML = boxBig.innerHTML + `<div class="box" style="width:${size}%; height: ${size}%; background-color: ${color};"></div>`;
+            }
+            // 產生 1 ~ level**2(包含) 之間的整數 level**3 次方表示法 level 的 3次方
+            let randomAnswer = Math.floor(Math.random() * level ** 2 + 1);
+            // console.log(randomAnswer);
+            // 塞答案盒的簡便方法 => nth:of-type()
+            const answer = document.querySelector(`.box:nth-of-type(${randomAnswer})`);
+            answer.classList.add('answer');
+            answer.style.opacity = `${0.5 + level*0.03}`; //寫法要小心
+            // 增加監聽事件
+            answer.addEventListener('click', function () {
+                // alert('恭喜過關');
+                // ===========================================
+                count++;
+                if (count == level) {
+                    // 進入下一關
+                    level++;
+                    size = 100 / level;
+                }
+                // 呼叫自己 
+                game();
+                // ===========================================
+
+            });
+        }
+
+    </script>

@@ -1,0 +1,22 @@
+//定義變數 variable
+//局部變數
+$size: 50px;
+$text-color: rgba(43, 43, 255, 0.508);
+$text-color-title: rgb(0, 145, 24);
+
+body {
+    font-size: $size;
+    color: $text-color;
+}
+
+.title {
+    //局部變數
+    $size-local:24px;
+    font-size: $size-local;
+    color: $text-color-title;
+}
+
+.beauty {
+    font-size: $size-local;
+    color: $text-color-title;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 資料
+        // number =>數字，數值資料
+        // string =>字串
+        // boolin => 布林值 都只有兩個值(true(1).false(0))
+        // 還有...其他...
+
+        // 變數 variable
+        // var宣告變數， box變數名稱，123(你賦予box的值=>賦值)
+        // 復職的動作由"="來完成
+        // 變數 box，literial => 字面量(123)
+        var box = 123;
+        console.log(box);
+        // 只要是數字沒在引號內 =>number
+        // 浮點數 =>float ,帶有小數點的數
+        var box_2 = 10.2;
+        console.log(box_2);
+        // 只要是在引號內 => string
+        var a = '123';
+        console.log(a);
+        var b = '叭噗叭噗';
+        console.log(b);
+        b = 'llll';
+        console.log(b);
+
+        // 如何知道資料型態
+        // 大小寫敏感
+        // typeof()
+        console.log(box,typeof(box));
+        console.log(a,typeof(a));
+        console.log(a,typeof(a));
+
+        var f = 1;
+        console.log(f,typeof(f));
+        var g = 'abcdef';
+        console.log(g,typeof(g));
+        var h = true;
+        console.log(h ,typeof(h),h+5);
+        var i;
+        console.log(i,typeof(i));
+        var j = [1,2,3];//陣列(array)
+        console.log(j,typeof(j));
+        var k = {name:'一鹿狂飆'};//物件
+        console.log(k,typeof(k));
+        var m = console;
+        console.log(m, typeof(m));
+        var n = () =>{}
+        console.log(n, typeof(n));
+        var p = null;//空物件，空值
+        console.log(p, typeof(p));
+        var q = '';//空字串
+        console.log(q, typeof(q));
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偽類-1</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 10px;
+            background-color: antiquewhite;
+        }
+
+        /* 第一字 */
+        .box::first-letter {
+            color: brown;
+            font-size: 50px;
+        }
+
+        /* 第一行 */
+        .box::first-line {
+            color: rgb(28, 0, 139);
+        }
+
+        /* <!-- pseudo-class 偽元素 :: --> */
+        input:checked+label {
+            color: red;
+        }
+
+        /* <!-- pseudo-class 偽類 : 狀態上--> */
+        input[type="checkbox"]:checked {
+            box-shadow: 1px 2px 5px 3px rgb(0, 51, 255);
+        }
+
+        /* <!-- pseudo-class 偽類 : 狀態上--> */
+        option:checked {
+            background-color: rgb(10, 16, 14);
+            color: yellow;
+        }
+
+        /* <!-- pseudo-class 偽類 : 狀態上--> */
+        div:not(#not-box) {
+            background-color: aqua;
+        }
+
+        div:is(#not-box) {
+            background-color: rgb(2, 118, 118);
+        }
+
+        /* <!-- pseudo-class 偽類 : 狀態上--> */
+        #not-box {
+            border-radius: 50%;
+        }
+
+        label {
+            display: block;
+            margin-top: 1em;
+        }
+
+        input:focus {
+            background-color: lightblue;
+        }
+
+        select:focus {
+            background-color: ivory;
+        }
+
+        :checked {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- pse1u14do-class 偽元素 :: -->
+    <!-- pseudo-class 偽類 : 狀態上-->
+    <div class="box">
+        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem impedit asperiores illo alias rem a
+            suscipit.
+            Nam nobis quis provident, unde quas a omnis! Velit aliquid ab molestias tenetur quis.</span>
+    </div>
+    <div class="box">
+        你喜歡我的歌嗎
+        <input type="radio" id="yes" name="yes_no">
+        <label for="yes">yes</label>
+        <input type="radio" id="yes" name="yes_no">
+        <label for="no">no
+    </div>
+    <div class="box">
+        <input type="checkbox" id="beef" name="beef">
+        <label for="beef">牛肉</label>
+        <input type="checkbox" id="pork" name="pork">
+        <label for="pork">豬肉</label>
+    </div>
+    <div class="box">
+        <select>
+            <option value="">打上花火</option>
+            <option value="">殘響散歌</option>
+            <option value="">金魚花火</option>
+            <option value="">前前前世</option>
+        </select>
+    </div>
+    <div class="box"></div>
+    <div id="not-box" class="box"></div>
+    <div class="box"><p>Which flavor would you like to order? </p>full name:
+        <input type="text" id="full name">
+        <label for="full name"></label>
+        <select name="flaver" id="flaver">
+            <option value="">cherry</option>
+            <option value="">green tea</option>
+            <option value="">moose tracks</option>
+            <option value="">mint chip</option>
+        </select>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+
+    .pc {
+      width: 100%;
+      height: 50vh;
+      background-color: rgb(112, 112, 112);
+      border: 10px solid;
+    }
+
+    .player {
+      width: 100%;
+      height: 50vh;
+      background-color: rgb(112, 112, 112);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 10px solid;
+    }
+
+    .paper {
+      width: 27%;
+      background-color: rgb(112, 112, 112);
+      border-right: 10px solid;
+    }
+
+    .sci {
+      width: 27%;
+      background-color: rgb(112, 112, 112);
+      border-right: 10px solid;
+    }
+
+    .stone {
+      width: 27%;
+      background-color: rgb(112, 112, 112);
+      border-right: 10px solid;
+      border-left: 10px solid;
+    }
+
+    .result {
+      width: 19%;
+      background-color: rgb(112, 112, 112);
+      line-height: 20vh;
+      border-right: 10px solid;
+    }
+
+    div {
+      font-size: 48px;
+      text-align: center;
+      line-height: 50vh;
+      font-weight: bold;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="pc">電腦</div>
+    <div class="player">
+      <div class="stone">石頭</div>
+      <div class="sci">剪刀</div>
+      <div class="paper">布</div>
+      <div class="result">結果:<br><span class="resultText"></span></div>
+    </div>
+  </div>
+
+  <script>
+    let pc = document.querySelector('.pc')
+    let sciBtn = document.querySelector('.sci')
+    let paperBtn = document.querySelector('.paper')
+    let stoneBtn = document.querySelector('.stone')
+    let resultText = document.querySelector('.resultText')
+   
+
+    function pcGame() {
+      let pcChoice = ['石頭', '剪刀', '布']
+      let randomIndex = Math.floor(Math.random() * pcChoice.length);
+      return pcChoice[randomIndex];
+    }
+
+    function resultGame(playerChoice, pcChoice) {
+      if (playerChoice === pcChoice) {
+        result = ' 平手';
+      } else if ((playerChoice === '石頭' && pcChoice === '剪刀') ||
+        (playerChoice === '剪刀' && pcChoice === '布') ||
+        (playerChoice === '布' && pcChoice === '石頭')) {
+        result = ' 你贏了';
+      } else {
+        result = ' 你輸了';
+      }
+      resultText.innerText = result;
+    }
+
+    sciBtn.addEventListener('click', function () {
+      let playerChoice = '剪刀';
+      let pcChoice = pcGame();
+      pc.innerHTML = pcChoice;;
+      resultGame(playerChoice, pcChoice);
+    })
+
+    paperBtn.addEventListener('click', function () {
+      let playerChoice = '布';
+      let pcChoice = pcGame();
+      pc.innerHTML = pcChoice;
+      resultGame(playerChoice, pcChoice);
+    })
+
+    stoneBtn.addEventListener('click', function () {
+      let playerChoice = '石頭';
+      let pcChoice = pcGame();
+      pc.innerHTML = pcChoice;
+      resultGame(playerChoice, pcChoice);
+    })
+  </script>
+</body>
+
+</html>

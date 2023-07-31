@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC4</title>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #nav {
+            width: 100vw;
+            height: 100px;
+            background-color: gray;
+            padding: 10px 35px;
+            float: left;
+            position: relative;
+        }
+
+        .ham-menu {
+            background-color: rgb(220, 220, 220);
+            width: 80px;
+            height: 80px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+        .ham-menu .line {
+            width: 60px;
+            height: 5px;
+            background-color: rgb(85, 85, 85);
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
+
+        .ham-menu #line-1 {
+            top: 25%;
+        }
+
+        .ham-menu #line-2 {
+            top: 50%;
+        }
+
+        .ham-menu #line-3 {
+            top: 75%;
+        }
+
+        #ham-menu-switch:checked+.ham-menu #line-1 {
+
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        #ham-menu-switch:checked+.ham-menu #line-3 {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        #ham-menu-switch:checked+.ham-menu #line-2 {
+
+            display: none;
+        }
+
+        /* 當漢堡被勾選的時候 +後面的兄弟 */
+        #ham-menu-switch:checked~#nav-btn-all {
+            display: block;
+            transition: 1ms;
+        }
+
+        #logo {
+            width: 80px;
+            height: 80px;
+            background-color: rgb(76, 76, 76);
+            margin: auto;
+            background-image: url(./img/cat.png);
+            background-position: center;
+            background-size: cover;
+
+        }
+
+        .nav-btn {
+            width: 100px;
+            background-color: rgb(205, 205, 205);
+            height: 30px;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin: 10px auto 0;
+        }
+
+        #nav-btn-all {
+            width: 120px;
+            height: 130px;
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            border-radius: 10px;
+            /* right: 10px; */
+            /* top: calc(50% - 16px); */
+            display: none;
+        }
+
+
+        #container {
+            width: 100%;
+            height: calc(100vh - 100px);
+            background-color: rgb(189, 189, 189);
+            clear: left;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #content {
+            width: 100vw;
+            height: 100%;
+        }
+
+        .content-img {
+            width: 100%;
+            background-color: rgb(79, 79, 79);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #img-1 {
+            background-image: url(./img/Evangelion_3.0+1.0.png);
+            background-position: top;
+            height: 33%;
+        }
+
+        #img-2 {
+            background-image: url(./img/P.jpg);
+            height: 33%;
+        }
+
+        #img-3 {
+            background-image: url(./img/erodame.png);
+            height: 34%;
+        }
+
+        #img-1:hover,
+        #img-2:hover,
+        #img-3:hover {
+            transform: scale(0.95);
+        }
+
+        .nav-btn:visited {
+            background-color: rgb(119, 112, 104);
+            color: rgb(206, 206, 206);
+        }
+
+        .nav-btn:hover {
+            background-color: rgb(255, 230, 198);
+            color: rgb(57, 44, 44);
+            transform: scale(1.1);
+        }
+
+        .nav-btn:active {
+            background-color: aliceblue;
+            color: rgb(75, 75, 75);
+            transform: scale(0.9);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <input type="checkbox" id="ham-menu-switch" hidden>
+        <!-- 漢堡menu的本體 -->
+        <label for="ham-menu-switch" class="ham-menu">
+            <div id="line-1" class="line"></div>
+            <div id="line-2" class="line"></div>
+            <div id="line-3" class="line"></div>
+        </label>
+        <div id="logo"></div>
+        <div id="nav-btn-all">
+            <a href="https://www.youtube.com/" target="_blank">
+                <div id="nav-btn-1" class="nav-btn">youtube</div>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <div id="nav-btn-1" class="nav-btn">google</div>
+            </a>
+            <a href="https://zh-tw.facebook.com/" target="_blank">
+                <div id="nav-btn-1" class="nav-btn">facebook</div>
+            </a>
+        </div>
+    </div>
+    <div id="container">
+        <div id="content">
+            <div id="img-1" class="content-img"></div>
+            <div id="img-2" class="content-img"></div>
+            <div id="img-3" class="content-img"></div>
+        </div>
+    </div>
+</body>
+
+</html>
