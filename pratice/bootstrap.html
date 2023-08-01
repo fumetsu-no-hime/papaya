@@ -14,46 +14,67 @@
 
         body {
             margin: 0;
+            padding: 0;
             width: 100%;
             height: 100vh;
         }
 
-        .col-12{
+        .col-12 {
             /* height: 255px; */
-            border: solid white;
+            border: solid #212529;
         }
 
-        @media (max-width:768px) {
+        #pic-1 {
+            background-image: url(./img/6878883-view-wallpapers.jpg);
+            background-position: center;
+            background-size: cover;
+        }
 
+        #pic-2 {
+            background-image: url(./img/6878911-view.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        #pic-3 {
+            background-image: url(./img/7018753-over-clouds-view.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        @media (max-width:576px) {
+            #nav {
+                height: 150px;
+            }
+
+            #main {
+                height: calc(100% - 150px) !important;
+                padding: 10px 0px !important;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Collapsed content</h5>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-    <div class="container text-center h-100">
-        <div class="row m-auto ">
-            <div class="col-12 bg-warning col-sm-12 border-2 col-xl-4 h-300">
-                1
+    <div class="container-fluid text-center h-100 p-0">
+        <div class="row m-auto h-100">
+            <div class="col-12 bg-dark-subtle col-sm-3 col-md-3 col-lg-3 col-xl-2 border-0 p-0" id="nav">
             </div>
-            <div class="col-12 bg-warning col-sm-6 border-2 col-xl-4 h-300">
-                2
+            <div class="col-12 bg-dark col-sm-9 border-2 col-md-9 col-lg-9 col-xl-10 d-flex justify-content-center align-items-center h-100 pb-5 pt-5 border-0"
+                id="main">
+                <div class="row w-100 h-100 ">
+                    <div class="col-12 bg-dark-subtle col-sm-12 border-4 col-xl-4 p-0" id="pic-1">
+                        <img src="" class="img-fluid">
+                    </div>
+                    <div class="col-12 bg-dark-subtle col-sm-6 border-4 col-xl-4 p-0" id="pic-2">
+                        <img src="" class="img-fluid">
+                    </div>
+                    <div class="col-12 bg-dark-subtle col-sm-6 border-4 col-xl-4 p-0" id="pic-3">
+                        <img src="" class="img-fluid">
+                    </div>
+                </div>
             </div>
-            <div class="col-12 bg-warning col-sm-6 border-2 col-xl-4 h-300">
-                3
-            </div>
+
         </div>
     </div>
     <script src="./js/bootstrap.bundle.min.js"></script>
