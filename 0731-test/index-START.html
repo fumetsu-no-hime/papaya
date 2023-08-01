@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Scoped CSS Variables and JS</title>
 </head>
+
 <body>
   <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
-    <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <input type="range" name="spacing" id="spacing" min="10" max="200" value="10" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input type="range" name="blur" id="blur" min="0" max="25" value="10" data-sizing="px">
 
     <label for="base">Base Color</label>
-    <input type="color" name="base" value="#ffc600">
+    <input type="color" name="base" id="base" value="#ffc600">
   </div>
-
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
-
     /*
       misc styles, nothing to do with CSS variables
     */
+
 
     body {
       text-align: center;
@@ -38,17 +39,44 @@
       font-size: 50px;
     }
 
+    img {
+      padding: 10px;
+      background-color: blueviolet;
+    }
+
     .controls {
       margin-bottom: 50px;
     }
 
     input {
-      width:100px;
+      width: 100px;
     }
   </style>
 
   <script>
+    let spacing = document.querySelector('#spacing')
+    let blur = document.querySelector('#blur')
+    let base = document.querySelector('#base')
+    let img = document.querySelector('img')
+    let hl = document.querySelector('.hl')
+    spacing.addEventListener('input', () => {
+      let spaValue = spacing.value;
+      img.style.padding = `${spaValue}px`;
+    })
+
+    blur.addEventListener('input', () => {
+      let blurValue = blur.value;
+      img.style.filter = `blur(${blurValue}px)`;
+    })
+
+    base.addEventListener('input', () => {
+      let baseValue = base.value;
+      img.style.backgroundColor = `${baseValue}`;
+      hl.style.color = `${baseValue}`;
+    })
+
   </script>
 
 </body>
+
 </html>
