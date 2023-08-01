@@ -133,7 +133,7 @@ body {
 @media (max-width: 900px) {
     .nav-btn {
         margin:5px auto 0;
-        float: none; /
+        float: none; 
     }
 }
 
