@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex w-100 justify-content-center flex-column align-items-center">
+        <div class="list-group w-50">
+            <div class="list-group-item list-group-item-action" aria-current="true">
+                name
+            </div>
+        </div>
+        <div class="input-group w-50">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-id="123"
+                data-test="2456">新增</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script>
+        const listGroup = document.querySelector('.list-group')
+        const input = document.querySelector('input.form-control')
+        const btn = document.querySelector('button.btn.btn-outline-secondary')
+        const storage = sessionStorage.getItem('checkList');
+        console.log(JSON.parse(storage));
+        let list = [];
+        if (storage) {
+            list = JSON.parse(storage);
+            renderList()
+        }
+
+
+        btn.addEventListener('click', () => {
+            const value = input.value
+            if (value.trim() === '') return;//拒絕空格，trim() 方法會移除字串起始及結尾處的空白字元。 本文中的空白字元指所有空格字元（如：空格、欄標、無間斷空格等等）及換行字元（如：換行、回車等等）。
+            listGroup.innerHTML = '';//清空清單
+            list.push({
+                id: list.length + 1,
+                name: value,
+                //0:未執行 ,1:已執行
+                isDown: 0,
+            })//新增數值進入陣列 儲存輸入的資料
+            renderList()
+            //存進sessionStorage
+            console.log(JSON.stringify(list));
+            window.sessionStorage.setItem('checkList', JSON.stringify(list));
+            // console.log(list);
+            input.value = '';
+        });
+
+        listGroup.addEventListener('click', (event) => {
+            const listElement = event.target;
+            //event.target: 你實際點擊到的元素，event是可以自己設定的東西，不是一個定式。
+            console.log(listElement.dataset.id);
+            listElement.classList.add('active');
+            const clickedData = list.find((item) => item.id == listElement.dataset.id);
+            clickedData.isDown = 1;
+            sessionStorage.setItem('checkList', JSON.stringify(list))
+            console.log(list);
+            console.log(clickedData);
+
+        });
+
+        function renderList() {
+            listGroup.innerHTML = '';
+            list.forEach((item) => {
+                if (item.isDown === 0) {
+                    listGroup.innerHTML += `<div class="list-group-item list-group-item-action" aria-current="true" data-id="${item.id}">
+          ${item.name}</div>`;//把所有資料渲染到畫面
+                } else {
+                    listGroup.innerHTML += `<div class="list-group-item list-group-item-action active" aria-current="true" data-id="${item.id}">
+          ${item.name}</div>`;//把所有資料渲染到畫面
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
