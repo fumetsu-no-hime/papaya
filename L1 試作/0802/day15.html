@@ -39,7 +39,7 @@
         const listGroup = document.querySelector('.list-group')
         const input = document.querySelector('input.form-control')
         const btn = document.querySelector('button.btn.btn-outline-secondary')
-        const storage = sessionStorage.getItem('checkList');
+        const storage = localStorage.getItem('checkList');
         console.log(JSON.parse(storage));
         let list = [];
         if (storage) {
@@ -61,7 +61,7 @@
             renderList()
             //存進sessionStorage
             console.log(JSON.stringify(list));
-            window.sessionStorage.setItem('checkList', JSON.stringify(list));
+            window.localStorage.setItem('checkList', JSON.stringify(list));
             // console.log(list);
             input.value = '';
         });
@@ -69,23 +69,33 @@
         listGroup.addEventListener('click', (event) => {
             const listElement = event.target;
             //event.target: 你實際點擊到的元素，event是可以自己設定的東西，不是一個定式。
-            console.log(listElement.dataset.id);
-            listElement.classList.add('active');
-            const clickedData = list.find((item) => item.id == listElement.dataset.id);
+            // console.log(listElement.dataset.id);
+            if (!listElement.classList.contains('list-group-item')) return;
+
+            listElement.classList.toggle('active');
+
+            const clickedData = list.find((item) => {
+              return item.id == listElement.dataset.id});
+            // clickedData.isDown = 1;
+            if (clickedData.isDown == 0){
             clickedData.isDown = 1;
-            sessionStorage.setItem('checkList', JSON.stringify(list))
+            }else{
+            clickedData.isDown = 0;
+            }
+            window.localStorage.setItem('checkList', JSON.stringify(list));
             console.log(list);
             console.log(clickedData);
-
         });
 
         function renderList() {
             listGroup.innerHTML = '';
             list.forEach((item) => {
                 if (item.isDown === 0) {
+        
                     listGroup.innerHTML += `<div class="list-group-item list-group-item-action" aria-current="true" data-id="${item.id}">
           ${item.name}</div>`;//把所有資料渲染到畫面
                 } else {
+        
                     listGroup.innerHTML += `<div class="list-group-item list-group-item-action active" aria-current="true" data-id="${item.id}">
           ${item.name}</div>`;//把所有資料渲染到畫面
                 }
