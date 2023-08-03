@@ -30,6 +30,8 @@
                 aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-id="123"
                 data-test="2456">新增</button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon3" data-id="123"
+                data-test="2456">刪除</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -39,6 +41,7 @@
         const listGroup = document.querySelector('.list-group')
         const input = document.querySelector('input.form-control')
         const btn = document.querySelector('button.btn.btn-outline-secondary')
+        const delBtn = document.querySelector('#button-addon3')
         const storage = localStorage.getItem('checkList');
         console.log(JSON.parse(storage));
         let list = [];
@@ -46,14 +49,20 @@
             list = JSON.parse(storage);
             renderList()
         }
-
+        let arr = [1,2,3,4];
+        arr.splice(0);
+        console.log(arr);
 
         btn.addEventListener('click', () => {
             const value = input.value
             if (value.trim() === '') return;//拒絕空格，trim() 方法會移除字串起始及結尾處的空白字元。 本文中的空白字元指所有空格字元（如：空格、欄標、無間斷空格等等）及換行字元（如：換行、回車等等）。
             listGroup.innerHTML = '';//清空清單
+            let idRule = 1;
+            if (list.length != 0) {
+                idRule =  list[list.length - 1].id + 1;
+            }
             list.push({
-                id: list.length + 1,
+                id: idRule,
                 name: value,
                 //0:未執行 ,1:已執行
                 isDown: 0,
@@ -65,6 +74,25 @@
             // console.log(list);
             input.value = '';
         });
+
+        delBtn.addEventListener('click', ()=>{
+            const delDatas = document.querySelectorAll('.active');
+            const delIds = [];
+            delDatas.forEach((delData)=>{
+                delIds.push(delData.dataset.id);
+                //取得元素提供的id
+                //用id找出資料
+            })
+            console.log(delIds);
+            const newList = list.filter((item)=>{
+                console.log(delIds.includes(String(item.id)));
+                return !(delIds.includes(String(item.id)));
+            })
+            list = newList;
+            localStorage.setItem('checkList', JSON.stringify(list));
+            console.log(list);
+            renderList();
+        })
 
         listGroup.addEventListener('click', (event) => {
             const listElement = event.target;
