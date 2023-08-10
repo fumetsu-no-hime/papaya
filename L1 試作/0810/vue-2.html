@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container-md">
+            <div class="row">
+                <div v-for="(card,index) in dogeData" :key="card.id" class="col-12 col-md-3">
+                    <div class="card">
+                        <img :src="cardImage(card).img" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{cardImage(card).name}}</h5>
+                            <p class="card-text">戰力:{{card.power}}</p>
+                            <button type="button" @click="minus(card);">減少戰力</button>
+                            <button type="button" @click="plus(card)">增加戰力</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    images: {
+                        ero: './img/erodame.png',
+                        cat: './img/cat.png',
+                        p: './img/p.jpg',
+                    },
+
+                    dogeName: {
+                        ero: 'ero',
+                        cat: 'cat',
+                        p: 'p',
+                    },
+                    dogeData: [
+                        {
+                            id: 1,
+                            name: 'ero',
+                            power: 0,
+                        },
+                        {
+                            id: 2,
+                            name: 'cat',
+                            power: 3000,
+                        },
+                        {
+                            id: 3,
+                            name: 'p',
+                            power: 10000,
+                        },
+                    ]
+                }
+            },
+            mounted() {
+
+            },
+            methods: {
+                cardImage(card) {
+                    const { images, dogeName } = this
+                    if (card.power >= 10000) {
+                        return {
+                            name: dogeName.p,
+                            img: images.p
+                        };
+                    } else if (card.power >= 3000) {
+                        return {
+                            name: dogeName.cat,
+                            img: images.cat
+                        };
+                    } else {
+                        return {
+                            name: dogeName.ero,
+                            img: images.ero
+                        };
+                    }
+                    console.log(power);
+                },
+                minus(card) {
+                    if (card.power - 1000 < 0) {
+                        card.power = 0;
+                    } else {
+                        card.power -= 1000;
+                    }
+                },
+                plus(card) {
+                    if (card.power + 1000 > 100000) {
+                        card.power = 100000;
+                    } else {
+                        card.power += 1000;
+                    }
+                }
+            },
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

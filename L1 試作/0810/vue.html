@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" @click="addCount()">+1</button>
+        <div v-if="count > 50">count大於50</div>
+        <div v-else-if="count > 20">count大於20</div>
+        <div v-else>count = {{count}}</div>
+
+
+        <hr>
+        <button type="button" @click="tab = 'retail'">零售</button>
+        <button type="button" @click="tab = 'whole'">批發</button>
+        {{ tab }}
+        <hr>
+        <div v-if="tab === 'retail'">零售資料</div>
+        <div v-else>批發資料</div>
+        <!-- 與資料進行雙向綁定 -->
+        <input v-model="name" type="text" maxlength="8" placeholder="請填入姓名">
+        <hr>
+        姓名:{{name}}
+        <hr>
+        cat戰力:{{power}}
+        <hr>
+        <button type="button" @click="power -= 1000">減少戰力</button>
+        <button type="button" @click="power += 1000">增加戰力</button>
+        <img v-bind:src="changeImage()" :alt="message">
+    </div>
+
+
+
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            //放資料的位置
+            data() {
+                return {
+                    count: 0,
+                    message: 'Hello Vue!',
+                    tab: 'retail',
+                    name: '',
+                    img: {
+                        cat: './img/cat.png',
+                        p: './img/p.jpg',
+                        ero: './img/erodame.png',
+                    },
+                    power: 2000,
+                }
+            },
+            //頁面安裝時
+            mounted() {
+                console.log(this.message);
+                this.test();
+            },
+            //放置function的地方
+            methods: {
+                test() {
+                    console.log('test');
+                },
+                test2: function () {
+
+                },
+                addCount() {
+                    console.log(123);
+                    this.count++;
+                },
+                changeImage() {
+                    const { power, img } = this;
+                    if (power >= 10000) {
+                        return img.p
+                    } else if (power >= 3000) {
+                        return img.cat;
+                    } else {
+                        return img.ero;
+                    }
+                },
+            },
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
