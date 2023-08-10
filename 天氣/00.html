@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        img {
+            height: 300px;
+            width: 400px;
+            object-fit: fill;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header"></div>
+        <div class="container-md">
+            <button @click="switchCitySet(0)" class="btn btn-outline-secondary">全區</button>
+            <button @click="switchCitySet(1)" class="btn btn-outline-secondary">北區</button>
+            <button @click="switchCitySet(2)" class="btn btn-outline-secondary">中區</button>
+            <button @click="switchCitySet(3)" class="btn btn-outline-secondary">南區</button>
+            <button @click="switchCitySet(4)" class="btn btn-outline-secondary">東區</button>
+            <button @click="switchCitySet(5)" class="btn btn-outline-secondary">外島</button>
+            <div class="row">
+                <div v-for="(city, index) in Cities[activeCitySet]" class="col-12 col-sm-6 col-lg-4 col-xxl-3 p-3"
+                    :key="index">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ city }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <img :src="'./img/' + city + '.jpg'" class="img-thumbnail" alt="Weather Image">
+                            <p class="card-text">天氣狀況： {{ orgData[city]?.wxCondition }}</p>
+                            <p class="card-text">開始時間： {{ orgData[city]?.startTime }}</p>
+                            <p class="card-text">結束時間： {{ orgData[city]?.endTime }}</p>
+                            <p class="card-text">最低溫度： {{ orgData[city]?.minT }}度C</p>
+                            <p class="card-text">最高溫度： {{ orgData[city]?.maxT }}度C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    Cities: [
+                        ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', '臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '臺東縣', '澎湖縣', '金門縣', '連江縣'],
+                        ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣'],
+                        ['臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣'],
+                        ['臺南市', '高雄市', '屏東縣'],
+                        ['宜蘭縣', '花蓮縣', '臺東縣'],
+                        ['澎湖縣', '金門縣', '連江縣'],
+                    ],
+                    orgData: {},
+                    activeCitySet: 0,
+                };
+            },
+            mounted() {
+                const url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-F2D5F57B-D574-471F-8911-3EA1207559C0';
+                fetch(url)
+                    .then(response => response.json())
+                    .then(result => this.organizationData(result.records.location))
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            },
+            methods: {
+                organizationData(locations) {
+                    locations.forEach(location => {
+                        const locationName = location.locationName;
+                        const weatherElement = location.weatherElement[0].time[0];
+                        const wxCondition = weatherElement.parameter.parameterName;
+                        const startTime = weatherElement.startTime;
+                        const endTime = weatherElement.endTime;
+                        const minT = location.weatherElement[2].time[0].parameter.parameterName;
+                        const maxT = location.weatherElement[4].time[0].parameter.parameterName;
+                        this.orgData[locationName] = {
+                            wxCondition,
+                            startTime,
+                            endTime,
+                            minT,
+                            maxT,
+                        };
+                    });
+                },
+                switchCitySet(setIndex) {
+                    this.activeCitySet = setIndex;
+                },
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>

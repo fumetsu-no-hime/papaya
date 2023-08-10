@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/css.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <div class="title">天&nbsp;氣&nbsp;預&nbsp;報</div>
+            <div class="area">
+                <li class="twBtn">全台</li>
+                <li class="twBtn">北部</li>
+                <li class="twBtn">中部</li>
+                <li class="twBtn">南部</li>
+                <li class="twBtn">東部</li>
+                <li class="twBtn">外島</li>
+            </div>
+        </nav>
+        <div class="card-region">
+            <div class="card">
+                <br>
+                <div class="city-name">{{}}</div>
+                <br>
+                <div class="weather">{{}}</div>
+                <br>
+                <div class="start">{{}}</div>
+                <div>|</div>
+                <div class="end">{{}}</div>
+                <br>
+                <div class="temp">
+                    <div class="tempL">
+                        <div class="min">{{}}°C</div>
+                        <br>
+                        <div class="max">{{}}°C</div>
+                        <br>
+                    </div>
+                    <div class="ci">{{}}</div>
+                </div>
+                <br>
+                <div class="pop">降雨機率 : {{}}%</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="./js/js-2.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    cityAll: [
+                        ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', '臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '臺東縣', '澎湖縣', '金門縣', '連江縣'],
+                        ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣'],
+                        ['臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣'],
+                        ['臺南市', '高雄市', '屏東縣'],
+                        ['宜蘭縣', '花蓮縣', '臺東縣'],
+                        ['澎湖縣', '金門縣', '連江縣'],
+                    ],
+                    orgData: {},
+                }
+            },
+            mounted() {
+                const url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-D074525B-C033-4B85-BE6A-3F1C6A162C52';
+                fetch(url)
+                    .then(function (response) {//對方要回應給你
+                        // console.log(response)
+                        //回傳json格式資料 response.json()
+                        return response.json();
+                        //return response.text()
+                    }).then((myJson) => {
+                        this.organizationData(myJson.records.location)
+                    });
+            },
+            methods: {
+                organizationData(locations) {
+                    locations.forEach(location => {
+                        const locationName = location.locationName;
+                        let loc_we0_ti0 = location.weatherElement[0].time[0];
+                        let startTime = loc_we0_ti0.startTime;
+                        let endTime = loc_we0_ti0.endTime;
+                        let wx = loc_we0_ti0.parameter.parameterName;
+                        let minT = location.weatherElement[2].time[0].parameter.parameterName;
+                        let maxT = location.weatherElement[4].time[0].parameter.parameterName;
+                        let ci = location.weatherElement[3].time[0].parameter.parameterName;
+                        let pop = location.weatherElement[1].time[0].parameter.parameterName;
+
+                    });
+                }
+            },
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
