@@ -14,36 +14,36 @@
         <nav>
             <div class="title">天&nbsp;氣&nbsp;預&nbsp;報</div>
             <div class="area">
-                <li class="twBtn">全台</li>
-                <li class="twBtn">北部</li>
-                <li class="twBtn">中部</li>
-                <li class="twBtn">南部</li>
-                <li class="twBtn">東部</li>
-                <li class="twBtn">外島</li>
+                <button type="button" class="twBtn" @click="changeArea(0)">全台</button>
+                <button type="button" class="twBtn" @click="changeArea(1)">北部</button>
+                <button type="button" class="twBtn" @click="changeArea(2)">中部</button>
+                <button type="button" class="twBtn" @click="changeArea(3)">南部</button>
+                <button type="button" class="twBtn" @click="changeArea(4)">東部</button>
+                <button type="button" class="twBtn" @click="changeArea(5)">外島</button>
             </div>
         </nav>
         <div class="card-region">
-            <div class="card">
+            <div v-for="(city,cityName) in orgData" :key="cityName" class="card">
                 <br>
-                <div class="city-name">{{}}</div>
+                <div class="city-name">{{cityName}}</div>
                 <br>
-                <div class="weather">{{}}</div>
+                <div class="weather">{{city.wx}}</div>
                 <br>
-                <div class="start">{{}}</div>
+                <div class="start">{{city.startTime}}</div>
                 <div>|</div>
-                <div class="end">{{}}</div>
+                <div class="end">{{city.endTime}}</div>
                 <br>
                 <div class="temp">
                     <div class="tempL">
-                        <div class="min">{{}}°C</div>
+                        <div class="min">{{city.minT}}°C</div>
                         <br>
-                        <div class="max">{{}}°C</div>
+                        <div class="max">{{city.maxT}}°C</div>
                         <br>
                     </div>
-                    <div class="ci">{{}}</div>
+                    <div class="ci">{{city.ci}}</div>
                 </div>
                 <br>
-                <div class="pop">降雨機率 : {{}}%</div>
+                <div class="pop">降雨機率 : {{city.pop}}%</div>
             </div>
         </div>
     </div>
@@ -71,30 +71,40 @@
             mounted() {
                 const url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-D074525B-C033-4B85-BE6A-3F1C6A162C52';
                 fetch(url)
-                    .then(function (response) {//對方要回應給你
-                        // console.log(response)
-                        //回傳json格式資料 response.json()
+                    .then(function (response) {
                         return response.json();
-                        //return response.text()
                     }).then((myJson) => {
                         this.organizationData(myJson.records.location)
                     });
             },
             methods: {
-                organizationData(locations) {
-                    locations.forEach(location => {
-                        const locationName = location.locationName;
-                        let loc_we0_ti0 = location.weatherElement[0].time[0];
+                organizationData(data) {
+                    data.forEach((locationData) => {
+                        const locationName = locationData.locationName;
+                        let loc_we0_ti0 = locationData.weatherElement[0].time[0];
                         let startTime = loc_we0_ti0.startTime;
                         let endTime = loc_we0_ti0.endTime;
                         let wx = loc_we0_ti0.parameter.parameterName;
-                        let minT = location.weatherElement[2].time[0].parameter.parameterName;
-                        let maxT = location.weatherElement[4].time[0].parameter.parameterName;
-                        let ci = location.weatherElement[3].time[0].parameter.parameterName;
-                        let pop = location.weatherElement[1].time[0].parameter.parameterName;
+                        let minT = locationData.weatherElement[2].time[0].parameter.parameterName;
+                        let maxT = locationData.weatherElement[4].time[0].parameter.parameterName;
+                        let ci = locationData.weatherElement[3].time[0].parameter.parameterName;
+                        let pop = locationData.weatherElement[1].time[0].parameter.parameterName;
 
+                        this.orgData[locationName] = {
+                            wx,
+                            startTime,
+                            endTime,
+                            minT,
+                            maxT,
+                            ci,
+                            pop,
+                        }
                     });
-                }
+                },
+                changeArea(index) {
+                    const selectCity = this.cityAll[index];
+                    console.log(selectCity);
+                },
             },
         }).mount('#app')
     </script>
