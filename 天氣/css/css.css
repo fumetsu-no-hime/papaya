@@ -38,24 +38,25 @@ nav {
     /* border-radius: 5px; */
 }
 
-li {
+button {
     list-style: none;
     text-align: center;
     width: 16.7%;
     color: #252525;
-
+    border: none;
+    background-color: transparent;
     font-size: 19px;
     cursor: pointer;
     /* background-color: antiquewhite; */
 }
 
-li:hover {
+button:hover {
     border-bottom: 3px solid #818181;
     /* transform: scale(1.1); */
     font-weight: bold;
 }
 
-li:active {
+button:active {
     border-bottom: 1px solid rgb(255, 255, 255);
     font-weight: normal;
 
@@ -130,8 +131,3 @@ li:active {
     width: 100%;
    border-bottom: 1px solid;
 }
-
-/* .card-region .card:nth-last-child(1){
-position: absolute;
-
-} */

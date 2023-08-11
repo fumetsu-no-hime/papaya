@@ -23,9 +23,9 @@
             </div>
         </nav>
         <div class="card-region">
-            <div v-for="(city,cityName) in orgData" :key="cityName" class="card">
+            <div v-for="(city,cityName) in area" :key="cityName" class="card">
                 <br>
-                <div class="city-name">{{cityName}}</div>
+                <div class="city-name">{{city.locationName}}</div>
                 <br>
                 <div class="weather">{{city.wx}}</div>
                 <br>
@@ -63,9 +63,9 @@
                         ['宜蘭縣', '花蓮縣', '臺東縣'],
                         ['澎湖縣', '金門縣', '連江縣'],
                     ],
-                    // area: {},
+                    area: [],
                     orgData: {},
-                    selectCity: 0,
+                    selectCities: 0,
                 }
             },
             mounted() {
@@ -74,7 +74,8 @@
                     .then(function (response) {
                         return response.json();
                     }).then((myJson) => {
-                        this.organizationData(myJson.records.location)
+                        this.organizationData(myJson.records.location);
+                        this.changeArea(0);
                     });
             },
             methods: {
@@ -91,6 +92,7 @@
                         let pop = locationData.weatherElement[1].time[0].parameter.parameterName;
 
                         this.orgData[locationName] = {
+                            locationName,
                             wx,
                             startTime,
                             endTime,
@@ -100,30 +102,20 @@
                             pop,
                         }
                     });
-                    // console.log(this.orgData);
+                    console.log(this.orgData);
 
                 },
                 changeArea(index) {
                     const selectCities = this.cityAll[index];
-                    // let area = [];
-                    this.orgData = {};
+                    this.area = [];
 
                     // this.organizationData(selectCities);
 
                     selectCities.forEach(cityName => {
-                        // area.push(this.orgData[cityName])
-                        // console.log(area);
-                        this.orgData[cityName] = {
-                            wx: this.orgData.wx,
-                            startTime: '',
-                            endTime: '',
-                            minT: '',
-                            maxT: '',
-                            ci: '',
-                            pop: '',
-                        };
+                        this.area.push(this.orgData[cityName]); 
+                        console.log(this.orgData[cityName]);
                     })
-                    
+
                 },
             },
         }).mount('#app')
