@@ -33,15 +33,9 @@
                 <div>|</div>
                 <div class="end">{{city.endTime}}</div>
                 <br>
-                <div class="temp">
-                    <div class="tempL">
-                        <div class="min">{{city.minT}}°C</div>
-                        <br>
-                        <div class="max">{{city.maxT}}°C</div>
-                        <br>
-                    </div>
-                    <div class="ci">{{city.ci}}</div>
-                </div>
+                <div class="min">{{city.minT}}°C~{{city.maxT}}°C</div>
+                <br>
+                <div class="ci">{{city.ci}}</div>
                 <br>
                 <div class="pop">降雨機率 : {{city.pop}}%</div>
             </div>
@@ -109,13 +103,9 @@
                     const selectCities = this.cityAll[index];
                     this.area = [];
 
-                    // this.organizationData(selectCities);
-
                     selectCities.forEach(cityName => {
-                        this.area.push(this.orgData[cityName]); 
-                        console.log(this.orgData[cityName]);
-                    })
-
+                        this.area.push(this.orgData[cityName]);
+                    });
                 },
             },
         }).mount('#app')
