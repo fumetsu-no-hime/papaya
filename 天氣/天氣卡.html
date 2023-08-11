@@ -48,8 +48,6 @@
         </div>
     </div>
 
-
-    <!-- <script src="./js/js-2.js"></script> -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         const { createApp } = Vue
@@ -66,6 +64,7 @@
                         ['澎湖縣', '金門縣', '連江縣'],
                     ],
                     orgData: {},
+                    selectCity: 0,
                 }
             },
             mounted() {
@@ -104,10 +103,30 @@
                             pop,
                         }
                     });
+                    console.log(this.orgData);
+
                 },
                 changeArea(index) {
-                    const selectCity = this.cityAll[index];
-                    console.log(selectCity);
+                    const selectCities = this.cityAll[index];
+                    let area = [];
+                    // this.orgData = {};
+
+                    // this.organizationData(selectCities);
+
+                    selectCities.forEach(cityName => {
+                        area.push(this.orgData[cityName])
+                        console.log(this.orgData[cityName]);
+                        // this.orgData[cityName] = {
+                        //     wx: this.orgData.wx,
+                        //     startTime: '',
+                        //     endTime: '',
+                        //     minT: '',
+                        //     maxT: '',
+                        //     ci: '',
+                        //     pop: '',
+                        // };
+                    })
+                    r
                 },
             },
         }).mount('#app')
