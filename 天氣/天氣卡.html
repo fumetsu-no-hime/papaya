@@ -63,6 +63,7 @@
                         ['宜蘭縣', '花蓮縣', '臺東縣'],
                         ['澎湖縣', '金門縣', '連江縣'],
                     ],
+                    // area: {},
                     orgData: {},
                     selectCity: 0,
                 }
@@ -85,11 +86,7 @@
                         let endTime = loc_we0_ti0.endTime;
                         let wx = loc_we0_ti0.parameter.parameterName;
                         let minT = locationData.weatherElement[2].time[0].parameter.parameterName;
-                        let maxT = location
-                        +
-                        
-                        
-                        Data.weatherElement[4].time[0].parameter.parameterName;
+                        let maxT = locationData.weatherElement[4].time[0].parameter.parameterName;
                         let ci = locationData.weatherElement[3].time[0].parameter.parameterName;
                         let pop = locationData.weatherElement[1].time[0].parameter.parameterName;
 
@@ -103,30 +100,30 @@
                             pop,
                         }
                     });
-                    console.log(this.orgData);
+                    // console.log(this.orgData);
 
                 },
                 changeArea(index) {
                     const selectCities = this.cityAll[index];
-                    let area = [];
-                    // this.orgData = {};
+                    // let area = [];
+                    this.orgData = {};
 
                     // this.organizationData(selectCities);
 
                     selectCities.forEach(cityName => {
-                        area.push(this.orgData[cityName])
-                        console.log(this.orgData[cityName]);
-                        // this.orgData[cityName] = {
-                        //     wx: this.orgData.wx,
-                        //     startTime: '',
-                        //     endTime: '',
-                        //     minT: '',
-                        //     maxT: '',
-                        //     ci: '',
-                        //     pop: '',
-                        // };
+                        // area.push(this.orgData[cityName])
+                        // console.log(area);
+                        this.orgData[cityName] = {
+                            wx: this.orgData.wx,
+                            startTime: '',
+                            endTime: '',
+                            minT: '',
+                            maxT: '',
+                            ci: '',
+                            pop: '',
+                        };
                     })
-                    r
+                    
                 },
             },
         }).mount('#app')
