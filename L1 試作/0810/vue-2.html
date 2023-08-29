@@ -17,7 +17,9 @@
                     <div class="card">
                         <img :src="cardImage(card).img" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{cardImage(card).name}}</h5>
+                            <h5 :class="{'text-danger' : false, 'fs-3': false}" class="card-title">
+                                {{cardImage(card).name}}</h5>
+                            <h5 :class="cardTitleStyle(card,power)" class="card-title">{{cardImage(card).name}}</h5>
                             <p class="card-text">戰力:{{card.power}}</p>
                             <button type="button" @click="minus(card);">減少戰力</button>
                             <button type="button" @click="plus(card)">增加戰力</button>
@@ -67,9 +69,14 @@
                     ]
                 }
             },
+            compute: {},
+
+            watch: {},
+            //當vue在安裝完成執行的時候
             mounted() {
 
             },
+            //放function
             methods: {
                 cardImage(card) {
                     const { images, dogeName } = this
@@ -99,11 +106,16 @@
                     }
                 },
                 plus(card) {
-                    if (card.power + 1000 > 100000) {
-                        card.power = 100000;
+                    if (card.power + 1000 > 20000) {
+                        card.power = 20000;
                     } else {
                         card.power += 1000;
                     }
+                },
+
+                cardTitleStyle(power) {
+                    console.log(power);
+                    return 'fs-3 text-danger';
                 }
             },
         }).mount('#app')
